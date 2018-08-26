@@ -13,9 +13,9 @@
 #include "../dll_deep_header.h"
 #include "../../header/struct/dll_struct.h"
 
-t_dll_l	dll_drop_list_one(t_dll *list)
+t_dll_l	*dll_drop_list_one(t_dll *list)
 {
-	t_dll_l link;
+	t_dll_l *link;
 
 	link = list->top;
 	list->top = NULL;
@@ -24,10 +24,10 @@ t_dll_l	dll_drop_list_one(t_dll *list)
 	return (link);
 }
 
-t_dll_l	dll_drop_top(t_dll *list)
+t_dll_l	*dll_drop_top(t_dll *list)
 {
-	t_dll_l link;
-	t_dll_l new_top;
+	t_dll_l *link;
+	t_dll_l *new_top;
 
 	if (list->length == 0)
 		return (NULL);
@@ -42,10 +42,10 @@ t_dll_l	dll_drop_top(t_dll *list)
 	return (link);
 }
 
-t_dll_l	dll_drop_end(t_dll *list)
+t_dll_l	*dll_drop_end(t_dll *list)
 {
-	t_dll_l link;
-	t_dll_l new_end;
+	t_dll_l *link;
+	t_dll_l *new_end;
 
 	if (list->length == 0)
 		return (NULL);
@@ -60,11 +60,11 @@ t_dll_l	dll_drop_end(t_dll *list)
 	return (link);
 }
 
-static t_dll_l		drop_index(t_dll *list, size_t index)
+static t_dll_l		*drop_index(t_dll *list, size_t index)
 {
-	t_dll_l prev_link;
-	t_dll_l link;
-	t_dll_l next_link;
+	t_dll_l *prev_link;
+	t_dll_l *link;
+	t_dll_l *next_link;
 
 	link = get_good_link(index, list);
 	next_link = link->next;
@@ -76,8 +76,10 @@ static t_dll_l		drop_index(t_dll *list, size_t index)
 	return (link);
 }
 
-t_dll_l				dll_drop_index(t_dll *list, size_t index)
+t_dll_l				*dll_drop_index(t_dll *list, size_t index)
 {
+	if (list == NULL)
+		return (NULL);
 	if (list->length == 0)
 		return (NULL);
 	else if (list->length == 1)

@@ -29,7 +29,7 @@
 /*
 **    construct ================================================================
 */
-int new_dll(int is_ptr, t_dll **ptr_list);
+int new_dll(int is_ptr, t_dll **dll_ptr);
 void	destroy_dll(t_dll **ptr_list, void (*func)(void *));
 
 void destroy_dll_l(t_dll_l **l, void (*func)(void *));

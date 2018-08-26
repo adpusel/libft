@@ -1,14 +1,12 @@
 cmake_minimum_required(VERSION 3.9)
 project(libft)
 
-#set(CMAKE_C_STANDARD 99)
-#set(CMAKE_C_COMPILER "/usr/bin/gcc")
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_COMPILER "/usr/bin/gcc")
 set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
 
 
 set(LIB_SRC ./)
-
-#add_executable (Library_run ../main.c)
 
 #*------------------------------------*\
 #    CHAR
@@ -70,4 +68,5 @@ add_library(libft STATIC
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 
-#target_link_libraries(Library_run libft)
+add_executable (Library_run ../main.c)
+target_link_libraries(Library_run libft)

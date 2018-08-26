@@ -27,9 +27,9 @@ typedef struct			s_dll
 {
 	size_t				length;
 	int					is_ptr;
-	t_dll_l				top;
-	t_dll_l				where;
-	t_dll_l				end;
+	t_dll_l				*top;
+	t_dll_l				*where;
+	t_dll_l				*end;
 }						t_dll;
 
 #endif

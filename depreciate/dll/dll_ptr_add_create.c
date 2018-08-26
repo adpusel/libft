@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/struct/dll_struct.h"
-#include "../../header/dll.h"
+#include "struct/dll_struct.h"
+#include "dll.h"
 
 t_dll_l	dll_ptr_add_create(void *content, t_dll list)
 {

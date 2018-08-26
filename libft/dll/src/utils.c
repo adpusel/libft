@@ -26,9 +26,9 @@ int		to_top_or_end(size_t index, t_dll *list)
 		return (END_LIST);
 }
 
-t_dll_l			get_good_link(size_t index, t_dll *list)
+t_dll_l *get_good_link(size_t index, t_dll *list)
 {
-	t_dll_l	good_link;
+	t_dll_l	*good_link;
 	size_t	direction;
 
 	direction = to_top_or_end(index, list);
@@ -54,7 +54,7 @@ t_dll_l			get_good_link(size_t index, t_dll *list)
 	return (good_link);
 }
 
-void		reset_ptr_dll_l(t_dll_l link)
+void		reset_ptr_dll_l(t_dll_l *link)
 {
 	link->next = NULL;
 	link->prev = NULL;

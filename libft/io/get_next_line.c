@@ -78,12 +78,13 @@ int		get_next_line(const int fd, char **line)
 {
 	static t_gnl	gnl;
 	static int		count = 0;
+	int ret;
 
 	if (fd < 0 || !line)
 		return (-1);
 	if (count == 0)
 	{
-		gnl.str = ft_memory(0, NULL);
+		gnl.str = ft_memory(0, (void**)&gnl.str);
 		gnl.fd = fd;
 		++count;
 	}

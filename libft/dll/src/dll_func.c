@@ -14,27 +14,7 @@
 #include "../../header/struct/dll_struct.h"
 #include "../../header/define.h"
 
-typedef struct		s_label_00
-{
-	char *name;
-	int  add;
-} 					t_label_00;
-typedef t_label_00 *t_label;
-
-
-
-int test(t_dll_l link, void* name)
-{
-	t_label label;
-	label = link->content;
-
-	if (ft_strcmp(label->name, name))
-		return (TRUE);
-	return FALSE;
-}
-
-
-t_dll_l dll_func_lim
+t_dll_l *dll_func_lim
 	(
 		t_dll *lst,
 		int (*func)(t_dll_l *, void *),
@@ -42,7 +22,7 @@ t_dll_l dll_func_lim
 		ssize_t lim
 	)
 {
-	t_dll_l link;
+	t_dll_l *link;
 
 	link = lst->top;
 	lim = lim == -1 ? lst->length : lim;

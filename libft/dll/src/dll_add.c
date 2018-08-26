@@ -13,7 +13,7 @@
 #include "../dll_deep_header.h"
 #include "../../header/struct/dll_struct.h"
 
-static t_dll_l	dll_list_empty(t_dll_l link, t_dll *list)
+static t_dll_l	*dll_list_empty(t_dll_l *link, t_dll *list)
 {
 	list->top = link;
 	list->end = link;
@@ -21,9 +21,9 @@ static t_dll_l	dll_list_empty(t_dll_l link, t_dll *list)
 	return (link);
 }
 
-static t_dll_l	dll_add(t_dll_l link, t_dll *list)
+static t_dll_l	*dll_add(t_dll_l *link, t_dll *list)
 {
-	t_dll_l prev_link;
+	t_dll_l *prev_link;
 
 	if (link == NULL)
 		return (link);
@@ -37,13 +37,11 @@ static t_dll_l	dll_add(t_dll_l link, t_dll *list)
 	return (link);
 }
 
-static t_dll_l	dll_push(t_dll_l link, t_dll *list)
+static t_dll_l	*dll_push(t_dll_l *link, t_dll *list)
 {
-	t_dll_l prev_link;
+	t_dll_l *prev_link;
 
-	if (link == NULL)
-		return (link);
-	else if (list->length == 0)
+	if (list->length == 0)
 		return (dll_list_empty(link, list));
 	prev_link = list->top;
 	prev_link->prev = link;
@@ -53,10 +51,10 @@ static t_dll_l	dll_push(t_dll_l link, t_dll *list)
 	return (link);
 }
 
-static t_dll_l	push_index(t_dll_l link, t_dll *list, size_t index)
+static t_dll_l	*push_index(t_dll_l *link, t_dll *list, size_t index)
 {
-	t_dll_l prev_link;
-	t_dll_l next_link;
+	t_dll_l *prev_link;
+	t_dll_l *next_link;
 
 	next_link = get_good_link(index, list);
 	prev_link = next_link->prev;
@@ -68,10 +66,10 @@ static t_dll_l	push_index(t_dll_l link, t_dll *list, size_t index)
 	return (link);
 }
 
-t_dll_l			dll_add_at_index(t_dll_l link, t_dll *list, size_t index)
+t_dll_l *dll_add_at_index(t_dll_l *link, t_dll *list, size_t index)
 {
-	if (link == NULL)
-		return (link);
+	if (link == NULL || list == NULL)
+		return (NULL);
 	else if (list->length == 0)
 		return (dll_list_empty(link, list));
 	else if (index == 0)
