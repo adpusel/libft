@@ -19,7 +19,8 @@
 # define END 0
 # define FALSE 0
 # define FAIL 0
-
+# define IS_STR -1
+# define MEM_LACK -1
 # define NO 654
 # define YES 536465
 
@@ -30,4 +31,10 @@
 # define END_LIST 1
 # define DISABLE 0
 
+
+# define ALLOC_MEM(ret, function) \
+			if (ret == OK)			 \
+				ret = (function);
+# define IF_MEM_FREE(instruct) \
+			if (ret == OK) { instruct}
 #endif

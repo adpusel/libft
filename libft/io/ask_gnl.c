@@ -24,7 +24,7 @@ int	ask_gnl(int fd, char **line, size_t *nb_line_ptr)
 	nb_line += 1;
 	if (nb_line_ptr)
 		*nb_line_ptr = (size_t)nb_line;
-	free_str(line);
+	ft_mem_free(line);
 	ret = get_next_line(fd, line);
 	if (ret == -1)
 		errno_exit();

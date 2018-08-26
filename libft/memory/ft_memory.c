@@ -23,7 +23,7 @@ int ft_memory(size_t size, void **mem_ptr)
 	mem = malloc(size);
 	if (mem == NULL)
 	{
-		ret = FAIL;
+		ret = MEM_LACK;
 		*mem_ptr = NULL;
 	}
 	else

@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-void	mem_free(char **str)
+void	ft_mem_free(char **str)
 {
 	if (*str != NULL)
 	{

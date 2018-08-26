@@ -41,7 +41,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char const *s2);
+int ft_strjoin(void **dest, char const *s2, char const *s1);
 char				*ft_strtrim(char const *s);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -59,10 +59,10 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *s1, const char *s2);
 char				*ft_strnstr(const char *s1, const char *s2, size_t len);
-int					ft_strcmp(const char *s1, const char *s2);
+int					ft_str_eq(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strndup(char const *s, size_t len);
-size_t				ft_how_many_char(char const *str, char c);
+size_t ft_how_many_char(char c, char const *str);
 char				get_last_char_str(char *s);
 char				*ft_strnjoin(char const *s1, char const *s2, size_t n);
 int					str_by_func(char *s, int (*f)(int));
@@ -91,6 +91,6 @@ void				ft_put_uni(int c);
 /*
 **    mem_function
 */
-void				free_str(char **str);
+void				ft_mem_free(char **str);
 
 #endif
