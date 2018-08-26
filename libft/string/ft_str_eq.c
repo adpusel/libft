@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_streq.c                                        :+:      :+:    :+:    */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2017/11/16 12:46:10 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:46:06 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-#include "../header/memory.h"
-#include "string.h"
+#include <stddef.h>
+# include "../ft_library_headerd.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_str_eq(const char *s1, const char *s2)
 {
-	char	*d;
-	char	*s;
-	size_t	len;
-	size_t	dst_len;
-
-	if (!(d = (char *)ft_memchr(dst, '\0', size)))
-		return (size + ft_strlen(src));
-	s = (char*)src;
-	d = dst;
-	dst_len = ft_strlen(dst);
-	len = dst_len + ft_strlen(s);
-	d += dst_len;
-	while (dst_len++ < size - 1 && *s)
-		*d++ = *s++;
-	*d = '\0';
-	return (len);
+	if (s1 == NULL || s2 == NULL)
+		return (FAIL);
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 == *s2);
 }

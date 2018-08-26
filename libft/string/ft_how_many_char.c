@@ -10,13 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../ft_library_headerd.h"
 
-size_t	ft_how_many_char(char const *str, char c)
+size_t ft_how_many_char(char c, char const *str)
 {
 	size_t nb;
 
 	nb = 0;
+	if (str == NULL)
+		return (0);
 	while (*str)
 	{
 		if (*str++ == c)

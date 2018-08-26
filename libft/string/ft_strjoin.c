@@ -10,17 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/memory.h"
-#include "string.h"
+#include "../ft_library_headerd.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_strjoin(void **dest, char const *s1, char const *s2)
 {
-	char	*out;
+	int		ret;
+	size_t	size_1;
+	size_t	size_2;
 
-	if (!s1 || !s2)
-		return (NULL);
-	out = ft_memory(ft_strlen(s1) + ft_strlen(s2) + 1, NULL);
-	ft_strcpy(out, s1);
-	ft_strcat(out, s2);
-	return (out);
+	if (s1 == NULL && s2 == NULL)
+		return (FAIL);
+	size_1 = ft_strlen(s1);
+	size_2 = ft_strlen(s2);
+	ret = OK;
+	ALLOC_MEM(ret, ft_memory(size_1 + size_2 + 1, dest))
+	if (ret == OK)
+	{
+		ft_memcpy(dest, s1, size_1);
+		ft_memcpy(dest + size_1, s2, size_2);
+	}
+	return (ret);
 }

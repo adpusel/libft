@@ -13,6 +13,8 @@
 # include <unistd.h>
 #include "../header/memory.h"
 #include "string.h"
+// je copy a partir de --> donc que prendre de la memoire ?
+
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {

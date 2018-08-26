@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2017/11/16 12:46:13 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-#include "../header/memory.h"
-#include "string.h"
+#include <stdlib.h>
 
-char	*ft_strndup(char const *s, size_t len)
+void	mem_free(char **str)
 {
-	char *str;
-
-	if (!s)
-		return (NULL);
-	str = ft_memory(len + 1, NULL);
-	ft_strncpy(str, s, len);
-	str[len] = 0;
-	return (str);
+	if (*str != NULL)
+	{
+		free(*str);
+		*str = NULL;
+	}
 }

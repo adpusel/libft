@@ -30,7 +30,7 @@ int	str_is_int(char *str, int *out)
 		{
 			if (*str == '-' || *str == '+')
 				++signe;
-			if (ft_how_many_char(str + signe, '0') == ft_strlen(str + signe))
+			if (ft_how_many_char('0', str + signe) == ft_strlen(str + signe))
 				return (TRUE);
 			else
 				return (FAIL);
