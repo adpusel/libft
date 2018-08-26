@@ -36,7 +36,7 @@ int test(t_dll_l link, void* name)
 
 t_dll_l dll_func_lim
 	(
-		t_dll lst,
+		t_dll *lst,
 		int (*func)(t_dll_l *, void *),
 		void *data_ptr,
 		ssize_t lim

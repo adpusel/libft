@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!s)
 		return (NULL);
 	i = ft_strlen(s);
-	if (!(out = ft_memory(i)))
+	if (!(out = ft_memory(i, NULL)))
 		return (NULL);
 	i = 0;
 	while (s[i])

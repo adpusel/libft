@@ -19,7 +19,7 @@
 /*
 **    define
 */
-# define IS_LINK -1
+# define IS_PTR_LINK -1
 
 /*
 **    structure
@@ -29,11 +29,11 @@
 /*
 **    construct ================================================================
 */
-t_void___ destroy_dll(t_dll *l, void (*func)(void *));
-t_dll new_dll(int is_ptr);
+int new_dll(int is_ptr, t_dll **ptr_list);
+void	destroy_dll(t_dll **ptr_list, void (*func)(void *));
 
-void destroy_dll_l(t_dll_l *l, void (*func)(void *));
-t_dll_l new_dll_l(void *content, ssize_t size);
+void destroy_dll_l(t_dll_l **l, void (*func)(void *));
+int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr);
 /*
 **    add ======================================================================
 */

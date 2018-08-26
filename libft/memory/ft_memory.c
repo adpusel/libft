@@ -11,17 +11,26 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <define.h>
 #include "string.h"
 #include "../header/memory.h"
 
-void	*ft_memory(size_t size)
+int ft_memory(size_t size, void **mem_ptr)
 {
-	void *mem_ptr;
+	void *mem;
+	static int ret;
 
-	mem_ptr = malloc(size);
-	if (mem_ptr == NULL)
-		ft_putstr_fd("exit because : lack of memory", 2);
+	mem = malloc(size);
+	if (mem == NULL)
+	{
+		ret = FAIL;
+		*mem_ptr = NULL;
+	}
 	else
-		ft_memset(mem_ptr, 0, size);
-	return (mem_ptr);
+	{
+		ft_memset(mem, 0, size);
+		*mem_ptr = mem;
+		ret = OK;
+	}
+	return (ret);
 }

@@ -3,7 +3,7 @@ project(libft)
 
 #set(CMAKE_C_STANDARD 99)
 #set(CMAKE_C_COMPILER "/usr/bin/gcc")
-set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
+#set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
 
 
 set(LIB_SRC libft/)
@@ -66,7 +66,7 @@ add_library(libft STATIC
         #string
         ${FILE_STRING}
 
-        )
+        libft/memory/ft_dup_memory.c)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 

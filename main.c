@@ -21,7 +21,7 @@ int main(int ac, char **ap)
 {
 	(void) ac;
 	(void) ap;
-	char *a = ft_memory(55);
+	char *a = ft_memory(55, NULL);
 	(void)a;
 	//	char *string = NULL;
 	////

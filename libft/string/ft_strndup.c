@@ -20,7 +20,7 @@ char	*ft_strndup(char const *s, size_t len)
 
 	if (!s)
 		return (NULL);
-	str = ft_memory(len + 1);
+	str = ft_memory(len + 1, NULL);
 	ft_strncpy(str, s, len);
 	str[len] = 0;
 	return (str);

@@ -13,7 +13,7 @@
 #include "../../header/struct/dll_struct.h"
 #include "../../header/define.h"
 
-int		to_top_or_end(size_t index, t_dll list)
+int		to_top_or_end(size_t index, t_dll *list)
 {
 	size_t size_list;
 	size_t middle_lenght_list;
@@ -26,7 +26,7 @@ int		to_top_or_end(size_t index, t_dll list)
 		return (END_LIST);
 }
 
-t_dll_l			get_good_link(size_t index, t_dll list)
+t_dll_l			get_good_link(size_t index, t_dll *list)
 {
 	t_dll_l	good_link;
 	size_t	direction;

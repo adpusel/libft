@@ -16,38 +16,34 @@
 #include "../header/dll.h"
 #include "../header/define.h"
 
-t_dll_l new_dll_l(
-	void *content,
-	ssize_t size
-)
+int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr)
 {
-	t_dll_l link;
+	t_dll_l *link;
+	void *ptr_mem_content;
+	int ret;
 
-	link = (t_dll_l) ft_memory(sizeof(t_dll_l_struc));
-	if (link == NULL)
-		return (NULL);
-	if (size != IS_LINK)
+	ret = ft_memory(sizeof(t_dll_l), &link);
+	ret = ft_dup_memory(&ptr_mem_content, content, size);
+	if (ret == OK)
 	{
-		link->content = ft_memory(size);
-		if (content == NULL)
-			return (NULL);
-		ft_memcpy(link->content, content, size);
+		link->content = ptr_mem_content;
+		link->content_size = size;
+		link->next = NULL;
+		link->prev = NULL;
+		*link_ptr = link;
 	}
-	link->content_size = size;
-	link->next = NULL;
-	link->prev = NULL;
-	return (link);
+	else
+		*link_ptr = NULL;
+	return (ret);
 }
 
-void destroy_dll_l(t_dll_l *l, void (*func)(void *))
+void destroy_dll_l(t_dll_l **l, void (*func)(void *))
 {
-	t_dll_l link;
+	t_dll_l *link;
 
-	if (l == NULL)
+	if (l == NULL || *l == NULL)
 		return;
 	link = *l;
-	if (link == NULL)
-		return;
 	if (link->content)
 	{
 		func == NULL ?
@@ -61,22 +57,23 @@ void destroy_dll_l(t_dll_l *l, void (*func)(void *))
 	*l = NULL;
 }
 
-t_dll new_dll(int is_ptr)
+int new_dll(int is_ptr, t_dll **ptr)
 {
-	t_dll list;
+	t_dll *list;
+	static int ret;
 
-	list = ft_memory(sizeof(t_dll_ptr));
-	if (list)
+	ret = ft_memory(sizeof(t_dll), &list);
+	if (ret && is_ptr)
 		list->is_ptr = is_ptr;
-	return (list);
+	return (ret);
 }
 
 void destroy_dll(
-	t_dll *l,
+	t_dll **l,
 	void (*func)(void *)
 )
 {
-	t_dll list;
+	t_dll *list;
 	t_dll_l current_link;
 	t_dll_l next_link;
 

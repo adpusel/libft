@@ -19,7 +19,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	out = ft_memory(ft_strlen(s1) + ft_strlen(s2) + 1);
+	out = ft_memory(ft_strlen(s1) + ft_strlen(s2) + 1, NULL);
 	ft_strcpy(out, s1);
 	ft_strcat(out, s2);
 	return (out);

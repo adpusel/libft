@@ -24,7 +24,7 @@ char		*ft_strmap(char const *s, char (*f)(char))
 	if (!s)
 		return (NULL);
 	i = ft_strlen(s);
-	if (!(out = ft_memory(i)))
+	if (!(out = ft_memory(i, NULL)))
 		return (NULL);
 	while (*s)
 	{

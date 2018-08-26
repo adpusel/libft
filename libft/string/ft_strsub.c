@@ -20,7 +20,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	out = ft_memory(len + 1);
+	out = ft_memory(len + 1, NULL);
 	ft_strncpy(out, s + start, len);
 	out[len] = 0;
 	return (out);

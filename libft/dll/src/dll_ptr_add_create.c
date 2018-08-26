@@ -15,5 +15,5 @@
 
 t_dll_l	dll_ptr_add_create(void *content, t_dll list)
 {
-	return (dll_add_at_index(new_dll_l(content, IS_LINK), list, 0));
+	return (dll_add_at_index(new_dll_l(content, IS_PTR_LINK, NULL), list, 0));
 }

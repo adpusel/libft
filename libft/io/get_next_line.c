@@ -50,7 +50,7 @@ int		read_left(t_gnl *gnl, char **line, char c)
 	{
 		*line = ft_strsub(gnl->str, 0, len);
 		gnl->str ? free(gnl->str) : 0;
-		gnl->str = ft_memory(0);
+		gnl->str = ft_memory(0, NULL);
 		return (1);
 	}
 }
@@ -83,7 +83,7 @@ int		get_next_line(const int fd, char **line)
 		return (-1);
 	if (count == 0)
 	{
-		gnl.str = ft_memory(0);
+		gnl.str = ft_memory(0, NULL);
 		gnl.fd = fd;
 		++count;
 	}

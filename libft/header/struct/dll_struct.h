@@ -21,8 +21,7 @@ typedef struct			s_dll_l
 	size_t				content_size;
 	struct s_dll_l		*next;
 	struct s_dll_l		*prev;
-}						t_dll_l_struc;
-typedef t_dll_l_struc *t_dll_l;
+}						t_dll_l;
 
 typedef struct			s_dll
 {
@@ -31,7 +30,6 @@ typedef struct			s_dll
 	t_dll_l				top;
 	t_dll_l				where;
 	t_dll_l				end;
-}				t_dll_ptr;
-typedef t_dll_ptr *t_dll;
+}						t_dll;
 
 #endif

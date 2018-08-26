@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s)
 	while (check_char_into_str(*s, " \n\t") && *s)
 		s++;
 	if (!*s)
-		return (ft_memory(1));
+		return (ft_memory(1, NULL));
 	s2 = (char*)s + (ft_strlen(s) - 1);
 	size = ft_strlen(s);
 	while (check_char_into_str(*s2, " \n\t"))

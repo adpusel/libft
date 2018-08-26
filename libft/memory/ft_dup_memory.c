@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dll_c_iter.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/05/04 16:39:48 by adpusel          ###   ########.fr       */
+/*   Updated: 2018/05/04 16:49:07 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../../ft_library_header.h"
+#include <stdlib.h>
+#include <define.h>
+#include "string.h"
+#include "../header/memory.h"
 
-t_dll_l		dll_l_iter_int(t_dll_c c_list, int nb, int (*func)(int, int))
+int ft_dup_memory(void **dest, const void *src, size_t size)
 {
-	size_t	i;
-	t_dll_l	current_link;
+	void *mem;
+	static int ret;
 
-	if (c_list->length == 0)
-		return (NULL);
-	i = c_list->length;
-	current_link = c_list->top;
-	while (i != 0)
+	mem = malloc(size);
+	if (mem == NULL)
 	{
-		if (func(dll_l_get_int(current_link), nb))
-			return (current_link);
-		current_link = current_link->next;
-		i--;
+		ret = FAIL;
+		*dest = NULL;
 	}
-	return (NULL);
+	else
+	{
+		ret = TRUE;
+		ft_memcpy(*dest, src, size);
+	}
+	return (ret);
 }
