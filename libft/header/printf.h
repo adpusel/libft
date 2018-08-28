@@ -188,6 +188,7 @@ void				manage_n(t_pf *pf);
 **	percent style
 */
 void				manage_percent(t_pf *pf);
+char				*ft_str_rev(char *s);
 
 /*
 **	fuck style

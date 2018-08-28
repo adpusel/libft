@@ -37,6 +37,7 @@ file(GLOB FILE_MEMORY "${LIB_SRC}memory/*.c")
 file(GLOB FILE_PRINTF_1 "${LIB_SRC}printf/*.c")
 file(GLOB FILE_PRINTF_2 "${LIB_SRC}printf/**/*.c")
 file(GLOB FILE_PRINTF_3 "${LIB_SRC}printf/**/**/*.c")
+file(GLOB FILE_PRINTF_4 "${LIB_SRC}printf/**/**/**/*.c")
 
 
 #*------------------------------------*\
@@ -67,13 +68,14 @@ add_library(libft STATIC
         ${FILE_PRINTF_1}
         ${FILE_PRINTF_2}
         ${FILE_PRINTF_3}
+        ${FILE_PRINTF_4}
 
         #string
         ${FILE_STRING}
 
         #test
         ${FILE_TEST}
-        libft/header/test.h libft/test/test_memory.c)
+        libft/header/test.h libft/test/test_memory.c libft/printf/ft_str_rev.c)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 

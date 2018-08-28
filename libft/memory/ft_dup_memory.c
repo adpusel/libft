@@ -22,7 +22,7 @@ int ft_dup_memory(void **dest, const void *src, size_t size)
 
 	if (src == NULL)
 	    return (PTR_NULL);
-	mem = malloc(size);
+	mem = malloc(size == 0 ? 1 : size);
 	if (mem == NULL)
 	{
 		ret = MEM_LACK;

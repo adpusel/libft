@@ -40,8 +40,9 @@ int read_left(t_gnl *gnl, char **line, char c)
 		ret = ft_dup_memory((void **) line, gnl->str, s_len);
 		tmp = gnl->str;
 		if (ret == OK)
-			ret = ft_dup_memory((void **) &gnl->str, gnl->str, len - s_len);
-		free(tmp);
+			ret = ft_dup_memory((void **) &gnl->str, gnl->str + s_len + 1,
+				len - s_len - 1);
+		ft_mem_free(&tmp);
 		return (ret);
 	}
 	else
@@ -63,17 +64,17 @@ int read_line(t_gnl *gnl, char **line)
 		buf[gnl->r_stt] = '\0';
 		tmp = gnl->str;
 
-		ret = ft_strjoin((void**)&gnl->str, buf, gnl->str);
+		ret = ft_strjoin((void **) &gnl->str, buf, gnl->str);
 		ft_mem_free(&tmp);
 		if (ret != OK)
-		    return (ret);
+			return (ret);
 
 		if (ft_strclen(gnl->str, '\n') != -1)
 			return (read_left(gnl, line, '\n'));
 	}
 	if (gnl->r_stt == 0 && ft_strlen(gnl->str) > 0)
 		return (read_left(gnl, line, 0));
-	return (gnl->r_stt);
+	return (0);
 }
 
 int get_next_line(const int fd, char **line)
@@ -82,15 +83,17 @@ int get_next_line(const int fd, char **line)
 	static int count = 0;
 	int ret;
 
+	t_gnl *super = &gnl;
+	(void) super;
 	if (fd < 0 || !line)
 		return (-1);
 	if (count == 0)
 	{
-		ret = ft_memory(1, (void **)&gnl.str);
-		if (ret != OK)
-		    return (MEM_LACK);
 		gnl.fd = fd;
-		++count;
+		ret = ft_memory(1, (void **) &gnl.str);
+		if (ret != OK)
+			return (MEM_LACK);
+		count++;
 	}
 	if (ft_strclen(gnl.str, '\n') != -1)
 		return (read_left(&gnl, line, '\n'));

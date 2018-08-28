@@ -26,9 +26,10 @@ int main(int ac, char **ap)
 	char *lines;
 	size_t t;
 
-	int fd = open_file("/Users/adpusel/code/42/libft/libft/test/test_GNL");
-	while (ask_gnl(fd, &lines,&t))
+	int fd = open_file("/Users/adpusel/Dropbox/42/projects/libft/libft/test/test_GNL");
+	(void)fd;
+	while (ask_gnl(fd, &lines,&t) == OK)
 	{
-	    printf("%s \n",lines);
+	    ft_printf("%s \n",lines);
 	}
 }

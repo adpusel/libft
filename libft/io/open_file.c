@@ -21,5 +21,5 @@ int	open_file(char *name)
 	return (fd > 0 ?
 			fd
 					:
-			FAIL);
+			-1);
 }
