@@ -41,7 +41,6 @@ typedef struct		s_gnl
 int					get_next_line(const int fd, char **line);
 int					ask_gnl(int fd, char **line, size_t *nb_line_ptr);
 
-int					ft_error(char *str);
 int					open_file(char *name);
 void				raise_errno(void *ptr);
 int					ft_atoi(const char *s);

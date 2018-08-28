@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include "../header/io.h"
+# include "../ft_library_headerd.h"
 
 int	open_file(char *name)
 {
@@ -21,5 +21,5 @@ int	open_file(char *name)
 	return (fd > 0 ?
 			fd
 					:
-			ft_error("error opening file !"));
+			FAIL);
 }

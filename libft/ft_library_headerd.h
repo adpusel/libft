@@ -39,7 +39,7 @@
 # include "header/dll.h"
 
 /*
-**    type align ========================================================
+**    type align 
 */
 # include "header/align.h"
 
@@ -47,5 +47,10 @@
 **    io
 */
 # include "header/io.h"
+
+/*
+**    test
+*/
+# include "header/test.h"
 
 #endif

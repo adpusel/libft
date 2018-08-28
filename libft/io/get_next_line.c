@@ -12,7 +12,7 @@
 
 #include "../ft_library_headerd.h"
 
-size_t ft_strclen(char *s, char c)
+ssize_t ft_strclen(char *s, char c)
 {
 	size_t i;
 
@@ -38,7 +38,6 @@ int read_left(t_gnl *gnl, char **line, char c)
 	{
 		s_len = ft_strclen(gnl->str, c);
 		ret = ft_dup_memory((void **) line, gnl->str, s_len);
-
 		tmp = gnl->str;
 		if (ret == OK)
 			ret = ft_dup_memory((void **) &gnl->str, gnl->str, len - s_len);
@@ -87,7 +86,9 @@ int get_next_line(const int fd, char **line)
 		return (-1);
 	if (count == 0)
 	{
-		gnl.str = ft_memory(0, (void **) &gnl.str);
+		ret = ft_memory(1, (void **)&gnl.str);
+		if (ret != OK)
+		    return (MEM_LACK);
 		gnl.fd = fd;
 		++count;
 	}

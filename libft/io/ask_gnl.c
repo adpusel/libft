@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../ft_library_header.h"
-
-#include <unistd.h>
-#include "string.h"
-#include "../header/io.h"
+#include "../ft_library_headerd.h"
 
 int	ask_gnl(int fd, char **line, size_t *nb_line_ptr)
 {

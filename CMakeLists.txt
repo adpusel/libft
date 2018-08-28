@@ -44,6 +44,11 @@ file(GLOB FILE_PRINTF_3 "${LIB_SRC}printf/**/**/*.c")
 #*------------------------------------*/
 file(GLOB FILE_STRING "${LIB_SRC}string/*.c")
 
+#*------------------------------------*\
+#    TEST
+#*------------------------------------*/
+file(GLOB FILE_TEST "${LIB_SRC}test/*")
+
 add_library(libft STATIC
         #char
         ${FILE_CHAR}
@@ -66,7 +71,9 @@ add_library(libft STATIC
         #string
         ${FILE_STRING}
 
-        libft/memory/ft_dup_memory.c)
+        #test
+        ${FILE_TEST}
+        libft/header/test.h libft/test/test_memory.c)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 

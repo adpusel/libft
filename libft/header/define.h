@@ -13,14 +13,18 @@
 #ifndef LIBFT_DEFINE_H
 # define LIBFT_DEFINE_H
 
+/*
+**    code err ret
+*/
+# define MEM_LACK -1
+# define PTR_NULL 2
+
 # define TRUE 1
 # define OK 1
 # define DONE 1
 # define END 0
 # define FALSE 0
 # define FAIL 0
-# define IS_STR -1
-# define MEM_LACK -1
 # define NO 654
 # define YES 536465
 

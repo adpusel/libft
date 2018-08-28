@@ -18,16 +18,16 @@ int	ft_strjoin(void **dest, char const *s1, char const *s2)
 	size_t	size_1;
 	size_t	size_2;
 
-	if (s1 == NULL && s2 == NULL)
-		return (FAIL);
+	if (s1 == NULL || s2 == NULL)
+		return (PTR_NULL);
 	size_1 = ft_strlen(s1);
 	size_2 = ft_strlen(s2);
 	ret = OK;
 	ALLOC_MEM(ret, ft_memory(size_1 + size_2 + 1, dest))
 	if (ret == OK)
 	{
-		ft_memcpy(dest, s1, size_1);
-		ft_memcpy(dest + size_1, s2, size_2);
+		ft_memcpy(*dest, s1, size_1);
+		ft_memcpy(*dest + size_1, s2, size_2);
 	}
 	return (ret);
 }

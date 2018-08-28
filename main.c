@@ -1,5 +1,6 @@
 #include <fcntl.h>
 #include "libft/header/memory.h"
+#include "libft/test/test.h"
 //#header "libft/ft_library_header.h"
 
 
@@ -21,34 +22,13 @@ int main(int ac, char **ap)
 {
 	(void) ac;
 	(void) ap;
-	char *a = ft_memory(55, NULL);
-	(void)a;
-	//	char *string = NULL;
-	////
-	//	int fd = open("/Users/adpusel/Dropbox/42/library/note", O_RDONLY);
-	//	while (get_next_line(fd, &string) > 0)
-	////	while (get_next_line(0, &string))
-	//	{
-	//		ft_printf("%s\n", string);
-	//		free_str(&string);
-	//
-	//	}
-	//	free_str(&string);
-//	t_dll func = new_dll(0);
-//	destroy_dll(&func, NULL);
-//
-//	char *s = "-00000";
-//	int nb;
-//
-//	ft_printf("%d  %d\n", str_is_int(s, &nb), nb);
-	//	t_str_split split = new_str_split(s, ' ');
-	//
-	//	while (str_split_get(split))
-	//	{
-	//		ft_printf("-%s-", split->current);
-	//	}
-	//
-	//	return (0);
-}
+//	all_test();
+	char *lines;
+	size_t t;
 
-// une fonction qui lie le read et
+	int fd = open_file("/Users/adpusel/code/42/libft/libft/test/test_GNL");
+	while (ask_gnl(fd, &lines,&t))
+	{
+	    printf("%s \n",lines);
+	}
+}

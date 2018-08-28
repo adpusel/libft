@@ -83,7 +83,7 @@ int					ft_fill_buff(char *str, t_buff *buff);
 void				ft_set_buff(t_buff *buff);
 void				buff_set_or_print(char *for_print, t_pf *pf);
 void				buff_set_or_print_char(char for_print, t_pf *pf);
-
+char				*ft_strcat(char *s1, const char *s2);
 /*
 **	head printf /////////////////////////////////
 */

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbrucker <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 18:37:49 by nbrucker          #+#    #+#             */
-/*   Updated: 2017/12/07 18:37:49 by nbrucker         ###   ########.fr       */
+/*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
-#include "define.h"
+#ifndef TEST_H
+#define TEST_H
 
-int	ft_error(char *error_name)
-{
-	ft_putendl_fd(error_name, 2);
-	return (FAIL);
-}
+/*
+**    function =================================================================
+*/
+int all_test();
+
+
+#endif

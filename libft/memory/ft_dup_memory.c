@@ -15,13 +15,13 @@
 #include "string.h"
 #include "../header/memory.h"
 
-int ft_dup_memory(void **dest, const void *src, ssize_t size)
+int ft_dup_memory(void **dest, const void *src, size_t size)
 {
 	void *mem;
 	static int ret;
 
-	if (size == IS_STR)
-		size = ft_strlen(*dest) + 1;
+	if (src == NULL)
+	    return (PTR_NULL);
 	mem = malloc(size);
 	if (mem == NULL)
 	{
@@ -31,7 +31,8 @@ int ft_dup_memory(void **dest, const void *src, ssize_t size)
 	else
 	{
 		ret = TRUE;
-		ft_memcpy(*dest, src, size);
+		ft_memcpy(mem, src, size);
+		*dest = mem;
 	}
 	return (ret);
 }
