@@ -56,9 +56,9 @@
 //	char	buf[BUFF_SIZE + 1];
 //	char	*tmp;
 //
-//	while ((gnl->r_stt = read(gnl->fd, buf, BUFF_SIZE)) > 0)
+//	while ((gnl->ret_read = read(gnl->fd, buf, BUFF_SIZE)) > 0)
 //	{
-//		buf[gnl->r_stt] = '\0';
+//		buf[gnl->ret_read] = '\0';
 //		tmp = gnl->str;
 //
 //		gnl->str = ft_strjoin(gnl->str, buf);
@@ -66,23 +66,23 @@
 //		if (ft_strclen(gnl->str, '\n') != -1)
 //			return (read_left(gnl, line, '\n'));
 //	}
-//	if (gnl->r_stt == 0 && (int)ft_strlen(gnl->str) > 0)
+//	if (gnl->ret_read == 0 && (int)ft_strlen(gnl->str) > 0)
 //		return (read_left(gnl, line, 0));
-//	return (gnl->r_stt);
+//	return (gnl->ret_read);
 //}
 //
 //int		get_next_line(const int fd, char **line)
 //{
 //	static t_gnl	gnl;
-//	static int		count = 0;
+//	static int		start = 0;
 //
 //	if (fd < 0 || !line)
 //		return (-1);
-//	if (count == 0)
+//	if (start == 0)
 //	{
 //		gnl.str = ft_strnew(0);
 //		gnl.fd = fd;
-//		++count;
+//		++start;
 //	}
 //	if (ft_strclen(gnl.str, '\n') != -1)
 //		return (read_left(&gnl, line, '\n'));

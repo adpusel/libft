@@ -18,16 +18,16 @@
 /*
 **  char function
 */
-void				ft_putchar(char c);
-void				ft_putchar_fd(char c, int fd);
-int					ft_isalpha(int c);
-int					ft_isdigit(int c);
-int					ft_isprint(int c);
-int					ft_isascii(int c);
-int					ft_isalnum(int c);
-int					ft_toupper(int c);
-int					ft_tolower(int c);
-int					ft_is_not_digit(int c);
+void	ft_putchar(char c);
+void	ft_putchar_fd(char c, int fd);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
+int		ft_isascii(int c);
+int		ft_isalnum(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+int		ft_is_not_digit(int c);
 
 /*
 **  str function
@@ -37,12 +37,13 @@ void	ft_putstr_fd(char const *s, int fd);
 int		ft_str_eq(const char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strcpy(char *dst, const char *src);
-int		ft_strjoin(void **dest, char const *s2, char const *s1);
+int		ft_str_join(char **dest, char const *s2, char const *s1);
 size_t	ft_strlen(const char *s);
 int		str_by_func(char *s, int (*f)(int));
 int		check_char_into_str(char *str, char c);
 ssize_t	ft_strclen(char *s, char c);
-int		ft_strdup(char **dest, const char *src);
+int		ft_str_dup(char **dest, const char *src);
+int		ft_str_n_dup(char **dest, char const *src, size_t size);
 
 
 

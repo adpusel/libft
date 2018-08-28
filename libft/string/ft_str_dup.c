@@ -12,21 +12,34 @@
 
 #include "../ft_library_headerd.h"
 
-int	ft_str_join(char **dest, char const *s1, char const *s2)
+int	ft_str_dup(char **dest, char const *src)
 {
-	int		ret;
-	size_t	size_1;
-	size_t	size_2;
+	int ret;
+	size_t size_str;
+	char *str_in;
 
-	if (s1 == NULL || s2 == NULL)
-		return (PTR_NULL);
-	size_1 = ft_strlen(s1);
-	size_2 = ft_strlen(s2);
-	ret = ft_memory((void**)dest, size_1 + size_2 + 1);
+	size_str = ft_strlen(src);
+	ret = ft_memory((void**)&str_in, size_str);
 	if (ret == OK)
 	{
-		ft_memcpy(*dest, s1, size_1);
-		ft_memcpy(*dest + size_1, s2, size_2);
+	    ft_memcpy(str_in, src, size_str);
+	    *dest = str_in;
+	}
+	dest[size_str] = 0;
+	return (ret);
+}
+
+int	ft_str_n_dup(char **dest, char const *src, size_t size)
+{
+	int ret;
+	char *str_in;
+
+	ret = ft_memory((void**)&str_in, size + 1);
+	if (ret == OK)
+	{
+		ft_memcpy(str_in, src, size);
+		str_in[size + 1] = 0;
+		*dest = str_in;
 	}
 	return (ret);
 }

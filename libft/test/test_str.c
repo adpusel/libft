@@ -34,11 +34,11 @@ static char *test_join_str()
 	char *test;
 	(void)test;
 
-	ret_1 = ft_strjoin((void **) &test_1, "super", NULL);
-	ret_2 = ft_strjoin((void **) &test_2, NULL, "super");
-	ret_3 = ft_strjoin((void **) &test_3, "sup", "er");
-	ret_4 = ft_strjoin((void **) &test_4, "", "super");
-	ret_5 = ft_strjoin((void **) &test_5, "super", "");
+	ret_1 = ft_str_join(&test_1, "super", NULL);
+	ret_2 = ft_str_join(&test_2, NULL, "super");
+	ret_3 = ft_str_join(&test_3, "sup", "er");
+	ret_4 = ft_str_join(&test_4, "", "super");
+	ret_5 = ft_str_join(&test_5, "super", "");
 
 	test = test_5;
 

@@ -30,23 +30,23 @@ int ret_5;
 static char *test_join_str()
 {
 	int *ret;
-	(void)ret;
+	(void) ret;
 	char *test;
-	(void)test;
+	(void) test;
 
-	ret_1 = ft_dup_memory((void **) &test_1, "super", ft_strlen("super"));
-	ret_2 = ft_strjoin((void **) &test_2, NULL, "super");
-	ret_3 = ft_strjoin((void **) &test_3, "sup", "er");
-	ret_4 = ft_strjoin((void **) &test_4, "", "super");
-	ret_5 = ft_strjoin((void **) &test_5, "super", "");
+	ret_1 = ft_dup_memory((void**)&test_1, "super", ft_strlen("super"));
+	ret_2 = ft_str_join(&test_2, NULL, "super");
+	ret_3 = ft_str_join(&test_3, "sup", "er");
+	ret_4 = ft_str_join(&test_4, "", "super");
+	ret_5 = ft_str_join(&test_5, "super", "");
 
 	test = test_5;
 
 	TEST("test join 1", STR_EQ(NULL, test_1) == FAIL && ret_1 == PTR_NULL)
-//	TEST("test join 2", STR_EQ(NULL, test_2) == FAIL && ret_2 == PTR_NULL)
-//	TEST("test join 3", STR_EQ("super", test_3) == TRUE && ret_3 == TRUE)
-//	TEST("test join 4", STR_EQ("super", test_4) == TRUE && ret_4 == TRUE)
-//	TEST("test join 5", STR_EQ("super", test_5) == TRUE && ret_5 == TRUE)
+	//	TEST("test join 2", STR_EQ(NULL, test_2) == FAIL && ret_2 == PTR_NULL)
+	//	TEST("test join 3", STR_EQ("super", test_3) == TRUE && ret_3 == TRUE)
+	//	TEST("test join 4", STR_EQ("super", test_4) == TRUE && ret_4 == TRUE)
+	//	TEST("test join 5", STR_EQ("super", test_5) == TRUE && ret_5 == TRUE)
 
 	return 0;
 }

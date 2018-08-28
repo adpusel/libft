@@ -11,25 +11,19 @@ int is_ascii(int c)
 	return (c >= ' ' && c <= '~');
 }
 
-
-
-
-// je recode gnl
-// quand j'envois une ligne je vois s'il faut split ou pas.
-// je
-
 int main(int ac, char **ap)
 {
 	(void) ac;
 	(void) ap;
-//	all_test();
+	//	all_test();
 	char *lines;
 	size_t t;
 
-	int fd = open_file("/Users/adpusel/Dropbox/42/projects/test_libf/libft/test/test_GNL");
-	(void)fd;
-	while (ask_gnl(fd, &lines,&t) == OK)
+	int fd = open_file("/Users/adpusel/code/42/libft/libft/test/test_GNL");
+	(void) fd;
+	while (ask_gnl(0, &lines, &t) == OK)
 	{
-	    ft_printf("%s \n",lines);
+//				ft_printf("d");
+		printf("%s \n", lines);
 	}
 }

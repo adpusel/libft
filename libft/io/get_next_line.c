@@ -12,31 +12,29 @@
 
 #include "../ft_library_headerd.h"
 
-int read_left(t_gnl *gnl, char **line, char c)
+int read_left(t_gnl *gnl, char **line, ssize_t len_before_bn)
 {
 	char *tmp;
-	size_t len;
-	size_t s_len;
 	int ret;
 
-	len = ft_strlen(gnl->str);
-	if (c != 0)
+	if (len_before_bn != -1)
 	{
-		s_len = ft_strclen(gnl->str, c);
-		ret = ft_dup_memory((void **) line, gnl->str, s_len);
+		//		ft_printf("d");
+		ret = ft_str_n_dup(line,
+						   gnl->str,
+						   len_before_bn);
 		tmp = gnl->str;
-		if (ret == OK)
-			ret = ft_dup_memory((void **) &gnl->str, gnl->str + s_len + 1,
-								len - s_len - 1);
+		ret && (ret = ft_str_n_dup(&gnl->str,
+								   gnl->str + len_before_bn + 1,
+								   ft_strlen(gnl->str) - len_before_bn - 1));
 		ft_mem_free(&tmp);
 		return (ret);
 	}
 	else
 	{
-		ret = ft_dup_memory((void **) line, gnl->str, len);
+		ret = ft_str_n_dup(line, gnl->str, ft_strlen(gnl->str));
 		ft_mem_free(&gnl->str);
-		if (ret)
-			ret = ft_memory((void **) gnl->str, 0);
+		ret && (ret = ft_memory((void **) gnl->str, 1));
 		return (ret);
 	}
 }
@@ -46,44 +44,50 @@ int read_line(t_gnl *gnl, char **line)
 	char buf[BUFF_SIZE + 1];
 	char *tmp;
 	int ret;
+	int is_efo;
 
-	while ((gnl->r_stt = read(gnl->fd, buf, BUFF_SIZE)) > 0)
+	while ((gnl->ret_read = read(gnl->fd, buf, BUFF_SIZE)) > 0)
 	{
-		buf[gnl->r_stt] = '\0';
-		tmp = gnl->str;
+		buf[gnl->ret_read] = '\0';
 
-		ret = ft_strjoin((void **) &gnl->str, buf, gnl->str);
+		tmp = gnl->str;
+		ret = ft_str_join(&gnl->str, buf, gnl->str);
 		ft_mem_free(&tmp);
 		if (ret != OK)
 			return (ret);
-
-		if (ft_strclen(gnl->str, '\n') != -1)
-			return (read_left(gnl, line, '\n'));
+		if ((is_efo = ft_strclen(gnl->str, '\n')) != -1)
+			return (read_left(gnl, line, is_efo));
 	}
-	if (gnl->r_stt == 0 && ft_strlen(gnl->str) > 0)
-		return (read_left(gnl, line, 0));
+	if (gnl->ret_read == 0 && ft_strlen(gnl->str) > 0)
+		return (read_left(gnl, line, -1));
+	return (ret);
+}
+
+int init_gnl(int fd, t_gnl *gnl)
+{
+	int ret;
+
+	gnl->start = 1;
+	gnl->fd = fd;
+	ret = ft_memory((void **) &gnl->str, 1);
+	if (ret != OK)
+		return (MEM_LACK);
 	return (ret);
 }
 
 int get_next_line(const int fd, char **line)
 {
-	static t_gnl gnl;
-	static int count = 0;
+	static t_gnl gnl = { 0, 0, 0, 0 };
 	int ret;
+	int is_efo;
 
-	t_gnl *super = &gnl;
-	(void) super;
+	t_gnl *g = &gnl;
+	(void)g;
 	if (fd < 0 || !line)
 		return (-1);
-	if (count == 0)
-	{
-		gnl.fd = fd;
-		ret = ft_memory((void **) &gnl.str, 1);
-		if (ret != OK)
-			return (MEM_LACK);
-		count++;
-	}
-	if (ft_strclen(gnl.str, '\n') != -1)
-		return (read_left(&gnl, line, '\n'));
+	if (gnl.start == FALSE && (ret = init_gnl(fd, &gnl)) != OK)
+		return (ret);
+	if ((is_efo = ft_strclen(gnl.str, '\n')) != -1)
+		return (read_left(&gnl, line, is_efo));
 	return (read_line(&gnl, line));
 }

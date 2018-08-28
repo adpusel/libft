@@ -18,10 +18,10 @@
 
 typedef struct		s_gnl
 {
+	int				start;
 	char			*str;
 	int				fd;
-	int				r_stt;
-	struct s_gnl	*next;
+	int				ret_read;
 }					t_gnl;
 
 

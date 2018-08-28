@@ -12,7 +12,7 @@
 
 #include "../ft_library_headerd.h"
 
-int ft_strdup(char **dest, const char *src)
+int ft_str_dup(char **dest, const char *src)
 {
 	int		ret;
 	size_t	lenght_src;
