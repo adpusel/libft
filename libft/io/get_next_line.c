@@ -10,11 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../header/memory.h"
-#include "../header/io.h"
-#include "string.h"
-#include "printf.h"
+#include "../ft_library_headerd.h"
 
 int		ft_strclen(char *s, char c)
 {
@@ -50,7 +46,7 @@ int		read_left(t_gnl *gnl, char **line, char c)
 	{
 		*line = ft_strsub(gnl->str, 0, len);
 		gnl->str ? free(gnl->str) : 0;
-		gnl->str = ft_memory(0, NULL);
+		gnl->str = ft_strnew(0);
 		return (1);
 	}
 }
@@ -78,13 +74,12 @@ int		get_next_line(const int fd, char **line)
 {
 	static t_gnl	gnl;
 	static int		count = 0;
-	int ret;
 
 	if (fd < 0 || !line)
 		return (-1);
 	if (count == 0)
 	{
-		gnl.str = ft_memory(0, (void**)&gnl.str);
+		gnl.str = ft_strnew(0);
 		gnl.fd = fd;
 		++count;
 	}
