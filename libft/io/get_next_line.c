@@ -19,7 +19,6 @@ int read_left(t_gnl *gnl, char **line, ssize_t len_before_bn)
 
 	if (len_before_bn != -1)
 	{
-		//		ft_printf("d");
 		ret = ft_str_n_dup(line,
 						   gnl->str,
 						   len_before_bn);

@@ -12,33 +12,31 @@
 
 #include "../ft_library_headerd.h"
 
-int	ft_str_dup(char **dest, char const *src)
+int ft_str_dup(char **dest, char const *src)
 {
 	int ret;
 	size_t size_str;
 	char *str_in;
 
 	size_str = ft_strlen(src);
-	ret = ft_memory((void**)&str_in, size_str);
+	ret = ft_memory((void **) &str_in, size_str + 1);
 	if (ret == OK)
 	{
-	    ft_memcpy(str_in, src, size_str);
-	    *dest = str_in;
+		ft_memcpy(str_in, src, size_str);
+		*dest = str_in;
 	}
-	dest[size_str] = 0;
 	return (ret);
 }
 
-int	ft_str_n_dup(char **dest, char const *src, size_t size)
+int ft_str_n_dup(char **dest, char const *src, size_t size)
 {
 	int ret;
 	char *str_in;
 
-	ret = ft_memory((void**)&str_in, size + 1);
+	ret = ft_memory((void **) &str_in, size + 1);
 	if (ret == OK)
 	{
 		ft_memcpy(str_in, src, size);
-		str_in[size + 1] = 0;
 		*dest = str_in;
 	}
 	return (ret);
