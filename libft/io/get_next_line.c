@@ -51,7 +51,7 @@ int read_line(t_gnl *gnl, char **line)
 	{
 		buf[gnl->ret_read] = '\0';
 		tmp = gnl->str;
-		ret = ft_str_join(&gnl->str, buf, gnl->str);
+		ret = ft_str_join(&gnl->str, gnl->str, buf);
 		ft_mem_free(&tmp);
 		if (ret != OK)
 			return (ret);
