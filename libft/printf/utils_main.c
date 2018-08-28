@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <memory.h>
 #include "../ft_library_headerd.h"
 
 static void		set_null_uni(wchar_t *s, t_pf *pf)
@@ -38,9 +37,22 @@ void			check_if_null_data(t_pf *pf)
 {
 	if (pf->data == 0)
 	{
-		if (check_char_into_str(pf->specifier, "s"))
+		if (check_char_into_str("s", pf->specifier))
 			pf->text.out = &(pf->null[0]);
-		else if (check_char_into_str(pf->specifier, "S"))
+		else if (check_char_into_str("S", pf->specifier))
 			pf->text.u_out = &(pf->uni_nul[0]);
 	}
+}
+
+int	check_char_into_str(char *str, char c)
+{
+	if (!str)
+		return (0);
+	while (*str)
+	{
+		if (*str == c)
+			return (1);
+		str++;
+	}
+	return (0);
 }

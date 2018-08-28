@@ -1,7 +1,7 @@
 #include <fcntl.h>
 #include "libft/header/memory.h"
 #include "libft/test/test.h"
-//#header "libft/ft_library_header.h"
+//#header "libft/ft_library_headerd.h"
 
 
 // une fonction qui dit fuck au truc fuck
@@ -26,7 +26,7 @@ int main(int ac, char **ap)
 	char *lines;
 	size_t t;
 
-	int fd = open_file("/Users/adpusel/Dropbox/42/projects/libft/libft/test/test_GNL");
+	int fd = open_file("/Users/adpusel/Dropbox/42/projects/test_libf/libft/test/test_GNL");
 	(void)fd;
 	while (ask_gnl(fd, &lines,&t) == OK)
 	{

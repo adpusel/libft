@@ -16,7 +16,7 @@
 int	ft_str_eq(const char *s1, const char *s2)
 {
 	if (s1 == NULL || s2 == NULL)
-		return (FAIL);
+		return (PTR_NULL);
 	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;

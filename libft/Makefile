@@ -27,7 +27,7 @@ __SOURCES_PATH__ = ./src/
 #*------------------------------------*\
 #    header
 #*------------------------------------*/
-__HEADER__ = ./ft_library_header.h
+__HEADER__ = ./ft_library_headerd.h
 
 
 #*------------------------------------*\
@@ -40,7 +40,7 @@ __SRC__ = $(addprefix $(__SOURCES_PATH__), $(__TMP__))
 
 __OBJ__ = $(__SRC__:.c=.o)
 
-__H__ = ft_library_header.h dll_c_header.h dll_header.h dll_l_header.h gnl.h libft_debug.h libft_define.h libft_memory_function.h libft_nb_function.h libft_str_function.h printf_header.h sll_header.h sll_l_header.h
+__H__ = ft_library_headerd.h dll_c_header.h dll_header.h dll_l_header.h gnl.h libft_debug.h libft_define.h libft_memory_function.h libft_nb_function.h libft_str_function.h printf_header.h sll_header.h sll_l_header.h
 
 
 #*------------------------------------*\

@@ -27,6 +27,6 @@ void	ft_mem_free(char **str);
 /*
 **  mine
 */
-int ft_memory(size_t size, void **mem_ptr);
+int ft_memory(void **mem_ptr, size_t size);
 
 #endif

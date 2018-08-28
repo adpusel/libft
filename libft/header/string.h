@@ -40,7 +40,12 @@ char	*ft_strcpy(char *dst, const char *src);
 int		ft_strjoin(void **dest, char const *s2, char const *s1);
 size_t	ft_strlen(const char *s);
 int		str_by_func(char *s, int (*f)(int));
-int 	check_char_into_str(char c, char *str);
+int		check_char_into_str(char *str, char c);
+ssize_t	ft_strclen(char *s, char c);
+int		ft_strdup(char **dest, const char *src);
+
+
+
 
 /*
 **    check str

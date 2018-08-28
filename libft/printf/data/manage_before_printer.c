@@ -14,7 +14,7 @@
 
 static void		manage_first_char(t_pf *pf)
 {
-	if (check_char_into_str(pf->specifier, "UuCcSs"))
+	if (check_char_into_str("UuCcSs", pf->specifier))
 	{
 		pf->pf_int.first_char[0] = 0;
 		return ;
@@ -27,11 +27,11 @@ static void		manage_first_char(t_pf *pf)
 		pf->pf_int.first_char[0] = ' ';
 	else if (pf->op.diez)
 	{
-		if (check_char_into_str(pf->specifier, "Oo"))
+		if (check_char_into_str("Oo", pf->specifier))
 			pf->pf_int.first_char[0] = '0';
 		if (pf->specifier == 'X')
 			ft_strcat(pf->pf_int.first_char, "0X");
-		else if (check_char_into_str(pf->specifier, "xpP"))
+		else if (check_char_into_str("xpP", pf->specifier))
 			ft_strcat(pf->pf_int.first_char, "0x");
 	}
 }
@@ -74,12 +74,12 @@ long			get_size(t_pf *pf)
 {
 	long size;
 
-	if (check_char_into_str(pf->specifier, "S"))
+	if (check_char_into_str("S", pf->specifier))
 	{
 		size = strlen_uni(pf->text.u_out, pf->text.precision);
 		return (size);
 	}
-	else if (check_char_into_str(pf->specifier, "s"))
+	else if (check_char_into_str("s", pf->specifier))
 	{
 		size = ft_strlen(pf->text.out);
 		if (pf->text.precision)
@@ -97,7 +97,7 @@ void			manage_before_printer(t_pf *pf)
 
 	check_if_null_data(pf);
 	if ((pf->op.dot || pf->op.left)
-		&& check_char_into_str(pf->specifier, "DdiOoUuxXcCSpPBbnNf"))
+		&& check_char_into_str("DdiOoUuxXcCSpPBbnNf", pf->specifier))
 		pf->op.zero = 0;
 	size_nb = get_size(pf);
 	manage_first_char(pf);

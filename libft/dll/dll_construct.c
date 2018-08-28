@@ -22,7 +22,7 @@ int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr)
 	void *ptr_mem_content;
 	int ret;
 
-	ret = ft_memory(sizeof(t_dll_l), (void **) &link);
+	ret = ft_memory((void **) &link, sizeof(t_dll_l));
 	if (ret == OK)
 		ret = ft_dup_memory(&ptr_mem_content, content, size);
 	if (ret == OK)
@@ -62,7 +62,7 @@ int new_dll(int is_ptr, t_dll **dll_ptr)
 {
 	static int ret;
 
-	ret = ft_memory(sizeof(t_dll), (void **) dll_ptr);
+	ret = ft_memory((void **) dll_ptr, sizeof(t_dll));
 	if (ret == OK && is_ptr == TRUE)
 		(*dll_ptr)->is_ptr = is_ptr;
 	return (ret);

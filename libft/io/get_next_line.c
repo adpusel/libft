@@ -12,20 +12,6 @@
 
 #include "../ft_library_headerd.h"
 
-ssize_t ft_strclen(char *s, char c)
-{
-	size_t i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
 int read_left(t_gnl *gnl, char **line, char c)
 {
 	char *tmp;
@@ -41,7 +27,7 @@ int read_left(t_gnl *gnl, char **line, char c)
 		tmp = gnl->str;
 		if (ret == OK)
 			ret = ft_dup_memory((void **) &gnl->str, gnl->str + s_len + 1,
-				len - s_len - 1);
+								len - s_len - 1);
 		ft_mem_free(&tmp);
 		return (ret);
 	}
@@ -49,6 +35,8 @@ int read_left(t_gnl *gnl, char **line, char c)
 	{
 		ret = ft_dup_memory((void **) line, gnl->str, len);
 		ft_mem_free(&gnl->str);
+		if (ret)
+			ret = ft_memory((void **) gnl->str, 0);
 		return (ret);
 	}
 }
@@ -74,7 +62,7 @@ int read_line(t_gnl *gnl, char **line)
 	}
 	if (gnl->r_stt == 0 && ft_strlen(gnl->str) > 0)
 		return (read_left(gnl, line, 0));
-	return (0);
+	return (ret);
 }
 
 int get_next_line(const int fd, char **line)
@@ -90,7 +78,7 @@ int get_next_line(const int fd, char **line)
 	if (count == 0)
 	{
 		gnl.fd = fd;
-		ret = ft_memory(1, (void **) &gnl.str);
+		ret = ft_memory((void **) &gnl.str, 1);
 		if (ret != OK)
 			return (MEM_LACK);
 		count++;

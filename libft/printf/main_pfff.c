@@ -14,37 +14,37 @@
 
 static void			fucking_norme(t_pf *pf)
 {
-	if (check_char_into_str(pf->specifier, "Ddi"))
+	if (check_char_into_str("Ddi", pf->specifier))
 		manage_decimal(pf);
-	else if (check_char_into_str(pf->specifier, "Uu"))
+	else if (check_char_into_str("Uu", pf->specifier))
 		manage_unsigned(pf);
-	else if (check_char_into_str(pf->specifier, "Oo"))
+	else if (check_char_into_str("Oo", pf->specifier))
 		manage_octal(pf);
-	else if (check_char_into_str(pf->specifier, "Xx"))
+	else if (check_char_into_str("Xx", pf->specifier))
 		manage_hexa(pf);
-	else if (check_char_into_str(pf->specifier, "Bb"))
+	else if (check_char_into_str("Bb", pf->specifier))
 		manage_binaire(pf);
 }
 
 void				send_to_good_manager(t_pf *pf)
 {
-	if (check_char_into_str(pf->specifier, "DdiUuOXxoBb"))
+	if (check_char_into_str("DdiUuOXxoBb", pf->specifier))
 		return (fucking_norme(pf));
-	if (check_char_into_str(pf->specifier, "c"))
+	if (check_char_into_str("c", pf->specifier))
 		return (manage_char(pf));
-	else if (check_char_into_str(pf->specifier, "C"))
+	else if (check_char_into_str("C", pf->specifier))
 		return (manage_char2(pf));
-	else if (check_char_into_str(pf->specifier, "s"))
+	else if (check_char_into_str("s", pf->specifier))
 		return (manage_str(pf));
-	else if (check_char_into_str(pf->specifier, "S"))
+	else if (check_char_into_str("S", pf->specifier))
 		return (manage_str_big(pf));
-	else if (check_char_into_str(pf->specifier, "Pp"))
+	else if (check_char_into_str("Pp", pf->specifier))
 		return (manage_ptr(pf));
-	else if (check_char_into_str(pf->specifier, "%"))
+	else if (check_char_into_str("%", pf->specifier))
 		return (manage_percent(pf));
-	else if (check_char_into_str(pf->specifier, "n"))
+	else if (check_char_into_str("n", pf->specifier))
 		return (manage_n(pf));
-	else if (check_char_into_str(pf->specifier, "f"))
+	else if (check_char_into_str("f", pf->specifier))
 		return (manage_float(pf));
 	else
 		return (manage_fuck(pf));
@@ -65,7 +65,7 @@ long				ft_printf(char *str, ...)
 		pf.data = 0;
 		if (pf.specifier == 'f')
 			pf.data = va_arg(ap, double);
-		else if (check_char_into_str(pf.specifier, "DdiOoUuxXcCsSpPBbnNf"))
+		else if (check_char_into_str("DdiOoUuxXcCsSpPBbnNf", pf.specifier))
 			pf.data = va_arg(ap, long);
 		send_to_good_manager(&pf);
 	}

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <memory.h>
 #include "../../ft_library_headerd.h"
 
 void		printer_space(t_pf *pf)
@@ -85,9 +84,9 @@ void		manage_buff_and_sbig(t_pf *pf)
 
 void		printer_value(t_pf *pf)
 {
-	if (check_char_into_str(pf->specifier, "s"))
+	if (check_char_into_str("s", pf->specifier))
 		manage_buff_and_s(pf);
-	else if (check_char_into_str(pf->specifier, "S"))
+	else if (check_char_into_str("S", pf->specifier))
 		manage_buff_and_sbig(pf);
 	else
 		buff_set_or_print(pf->pf_int.nb_s, pf);

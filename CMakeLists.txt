@@ -75,7 +75,7 @@ add_library(libft STATIC
 
         #test
         ${FILE_TEST}
-        libft/header/test.h libft/test/test_memory.c libft/printf/ft_str_rev.c)
+        libft/header/test.h libft/test/test_memory.c libft/printf/ft_str_rev.c libft/io/test_c.c libft/string/ft_strclen.c)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 
