@@ -34,7 +34,7 @@ int read_left(t_gnl *gnl, char **line, ssize_t len_before_bn)
 	{
 		ret = ft_str_n_dup(line, gnl->str, ft_strlen(gnl->str));
 		ft_mem_free(&gnl->str);
-		ret && (ret = ft_memory((void **) gnl->str, 1));
+		ret && (ret = ft_memory((void **)&gnl->str, 1));
 		return (ret);
 	}
 }
@@ -46,10 +46,10 @@ int read_line(t_gnl *gnl, char **line)
 	int ret;
 	int is_efo;
 
+	ret = OK;
 	while ((gnl->ret_read = read(gnl->fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[gnl->ret_read] = '\0';
-
 		tmp = gnl->str;
 		ret = ft_str_join(&gnl->str, buf, gnl->str);
 		ft_mem_free(&tmp);
@@ -60,7 +60,7 @@ int read_line(t_gnl *gnl, char **line)
 	}
 	if (gnl->ret_read == 0 && ft_strlen(gnl->str) > 0)
 		return (read_left(gnl, line, -1));
-	return (ret);
+	return (ret == OK ? gnl->ret_read : ret);
 }
 
 int init_gnl(int fd, t_gnl *gnl)

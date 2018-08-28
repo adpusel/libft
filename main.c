@@ -21,7 +21,7 @@ int main(int ac, char **ap)
 
 	int fd = open_file("/Users/adpusel/code/42/libft/libft/test/test_GNL");
 	(void) fd;
-	while (ask_gnl(0, &lines, &t) == OK)
+	while (ask_gnl(fd, &lines, &t) == OK)
 	{
 //				ft_printf("d");
 		printf("%s \n", lines);
