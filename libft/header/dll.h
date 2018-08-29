@@ -65,9 +65,9 @@ t_dll_l dll_ptr_add_create(void *link, t_dll list);
  * @param index == list.length 	>> drop end dll
  * @return list.lenght > 0 ? link dropped : NULL
  */
-t_dll_l dll_drop_link(t_dll list, t_dll_l link);
+t_dll_l *dll_drop_link(t_dll *list, t_dll_l *link);
 
-t_dll_l dll_drop_index(t_dll list, size_t index);
+t_dll_l *dll_drop_index(t_dll *list, size_t *index);
 
 /*
 **     with t_dll_ptr func ===========================================================
@@ -78,8 +78,8 @@ t_dll_l dll_drop_index(t_dll list, size_t index);
  *
  * @return func match between data and cur_link ? cur_link : NULL
  */
-t_dll_l dll_func_lim(
-	t_dll lst,
+t_dll_l *dll_func_lim(
+	t_dll *lst,
 	int (*func)(t_dll_l *, void *pVoid),
 	void *data_ptr,
 	ssize_t lim);

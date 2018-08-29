@@ -28,7 +28,7 @@ t_dll_l *dll_func_lim
 	lim = lim == -1 ? lst->length : lim;
 	while (lim)
 	{
-		if (func(link->content, data_ptr) == TRUE)
+		if (func(link, data_ptr) == TRUE)
 			return (link);
 		link = link->next;
 		--lim;
