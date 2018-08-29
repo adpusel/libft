@@ -20,7 +20,6 @@
 
 #define mu_run_test(TEST) do { char *message = TEST(); tests_run++; \
                                 if (message) return message; } while (0)
-
 extern int tests_run;
 
 /*------------------------------------*\
@@ -35,12 +34,21 @@ extern int tests_run;
 \*------------------------------------*/
 # define NB_EQ(nb_1, nb_2) nb_1 == nb_2
 
-
+/*------------------------------------*\
+    DLL
+\*------------------------------------*/
+# define LINK_EQ(link_1, link_2)  (ft_link_test(link_1, link_2))
 
 /*
 **    function =================================================================
 */
 int all_test();
+
+
+/*------------------------------------*\
+    helper
+\*------------------------------------*/
+int ft_link_test(t_dll_l *link_1, t_dll_l *link_2);
 
 
 #endif

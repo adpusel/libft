@@ -50,6 +50,11 @@ file(GLOB FILE_STRING "${LIB_SRC}string/*.c")
 #*------------------------------------*/
 file(GLOB FILE_TEST "${LIB_SRC}test/*")
 
+#*------------------------------------*\
+#    HEADER
+#*------------------------------------*/
+file(GLOB HEADERS "${LIB_SRC}header/*")
+
 add_library(libft STATIC
         #char
         ${FILE_CHAR}
@@ -75,7 +80,10 @@ add_library(libft STATIC
 
         #test
         ${FILE_TEST}
-        libft/header/test.h libft/test/test_memory.c libft/printf/ft_str_rev.c libft/io/test_c.c libft/string/ft_strclen.c libft/string/ft_str_dup.c)
+
+        #HEADER
+        ${HEADERS}
+        )
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 
