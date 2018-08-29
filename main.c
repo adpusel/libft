@@ -1,8 +1,4 @@
-#include <fcntl.h>
-#include "libft/header/memory.h"
-#include "libft/test/test_file/test.h"
-//#header "libft/ft_library_headerd.h"
-
+# include "libft/ft_library_headerd.h"
 
 // une fonction qui dit fuck au truc fuck
 
@@ -15,15 +11,16 @@ int main(int ac, char **ap)
 {
 	(void) ac;
 	(void) ap;
-	//	all_test();
-	char *lines;
-	size_t t;
+	all_test();
 
-	int fd = open_file("/Users/adpusel/code/42/libft/libft/test/test_GNL");
-	(void) fd;
-	while (ask_gnl(fd, &lines, &t) == OK)
-	{
-//				ft_printf("d");
-		printf("%s \n", lines);
-	}
+//	size_t t;
+	//	char *lines;
+	//	int fd = open_file("/Users/adpusel/code/42/libft/libft/test/test_GNL");
+	//	(void) fd;
+	//	while (ask_gnl(fd, &lines, &t) == OK)
+	//	{
+	//				ft_printf("d");
+	//		printf("%s \n", lines);
+	//}
+	return (EXIT_SUCCESS);
 }

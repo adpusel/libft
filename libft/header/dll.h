@@ -35,7 +35,7 @@ void	destroy_dll(t_dll **ptr_list, void (*func)(void *));
 void destroy_dll_l(t_dll_l **l, void (*func)(void *));
 /**
  *
- * @param  size if IS_PTR_LINK == no copy the content
+ * @param  size === IS_PTR_LINK == no copy the content
  * @return
  */
 int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr);

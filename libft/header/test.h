@@ -13,6 +13,8 @@
 #ifndef TEST_H
 #define TEST_H
 
+#include <struct/dll_struct.h>
+
 #define TEST(message, test) do { \
     if (!(test)) return message; \
                                     \
@@ -44,11 +46,9 @@ extern int tests_run;
 */
 int all_test();
 
-
 /*------------------------------------*\
     helper
 \*------------------------------------*/
 int ft_link_test(t_dll_l *link_1, t_dll_l *link_2);
-
 
 #endif

@@ -1,6 +1,5 @@
 #include "test.h"
 
-
 #include "test.h"
 
 /*------------------------------------*\
@@ -41,10 +40,15 @@ t_dll_l *link_5;
 
 static char *test_LINK_EQ()
 {
-	link_1 = new_dll_l()
+	char *str = "manger";
+	new_dll_l("super", ft_strlen(str), &link_1);
+	new_dll_l("suer", ft_strlen(str), &link_2);
+	new_dll_l("suer", ft_strlen(str), &link_3);
+	TEST("test_LINK_EQ -- 1", LINK_EQ(link_1, link_2))
+	TEST("test_LINK_EQ -- 2", LINK_EQ(link_1, link_3))
 
+	//	printf("%s \n", test_1);
 
-	printf("%s \n", test_1);
 	return 0;
 }
 

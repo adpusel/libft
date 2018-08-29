@@ -7,8 +7,6 @@
 /*
 **    function
 */
-char *all_test_str();
-char *all_test_memory();
 
 #endif
 

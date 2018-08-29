@@ -27,7 +27,7 @@ int ret_3;
 int ret_4;
 int ret_5;
 
-static char *test_join_str()
+static char *test_dup_mem()
 {
 	int *ret;
 	(void) ret;
@@ -35,14 +35,14 @@ static char *test_join_str()
 	(void) test;
 
 	ret_1 = ft_dup_memory((void**)&test_1, "super", ft_strlen("super"));
-	ret_2 = ft_str_join(&test_2, NULL, "super");
-	ret_3 = ft_str_join(&test_3, "sup", "er");
-	ret_4 = ft_str_join(&test_4, "", "super");
-	ret_5 = ft_str_join(&test_5, "super", "");
+//	ret_2 = ft_str_join(&test_2, NULL, "super");
+//	ret_3 = ft_str_join(&test_3, "sup", "er");
+//	ret_4 = ft_str_join(&test_4, "", "super");
+//	ret_5 = ft_str_join(&test_5, "super", "");
 
 	test = test_5;
 
-	TEST("test join 1", STR_EQ(NULL, test_1) == FAIL && ret_1 == PTR_NULL)
+	TEST("test test_dup_mem 1", STR_EQ("super", test_1) == TRUE && ret_1 == OK)
 	//	TEST("test join 2", STR_EQ(NULL, test_2) == FAIL && ret_2 == PTR_NULL)
 	//	TEST("test join 3", STR_EQ("super", test_3) == TRUE && ret_3 == TRUE)
 	//	TEST("test join 4", STR_EQ("super", test_4) == TRUE && ret_4 == TRUE)
@@ -58,7 +58,7 @@ static char *is_bad_label()
 
 char *all_test_memory()
 {
-	mu_run_test(test_test_link);
+	mu_run_test(test_dup_mem);
 	mu_run_test(is_bad_label);
 	return (NULL);
 }

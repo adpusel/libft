@@ -49,6 +49,7 @@ file(GLOB FILE_STRING "${LIB_SRC}string/*.c")
 #    TEST
 #*------------------------------------*/
 file(GLOB FILE_TEST "${LIB_SRC}test/*")
+file(GLOB FILE_TEST_FILE "${LIB_SRC}test/test_file/*")
 
 #*------------------------------------*\
 #    HEADER
@@ -80,9 +81,11 @@ add_library(libft STATIC
 
         #test
         ${FILE_TEST}
+        ${FILE_TEST_FILE}
 
         #HEADER
         ${HEADERS}
+        libft/ft_library_headerd.h
         )
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)

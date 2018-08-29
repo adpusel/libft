@@ -30,7 +30,7 @@ int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr)
 		if (size != IS_PTR_LINK)
 		    link->content = ptr_mem_content;
 		else
-			size = content;
+			link->content = content;
 		link->content_size = size;
 		link->next = NULL;
 		link->prev = NULL;

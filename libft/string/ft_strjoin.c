@@ -19,7 +19,10 @@ int	ft_str_join(char **dest, char const *s1, char const *s2)
 	size_t	size_2;
 
 	if (s1 == NULL || s2 == NULL)
+	{
+		*dest = NULL;
 		return (PTR_NULL);
+	}
 	size_1 = ft_strlen(s1);
 	size_2 = ft_strlen(s2);
 	ret = ft_memory((void**)dest, size_1 + size_2 + 1);

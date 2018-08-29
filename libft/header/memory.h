@@ -24,6 +24,12 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_dup_memory(void **dest, const void *src, size_t size);
 void	ft_mem_free(char **str);
 
+
+/**
+ * @return True == les n octets sont identiques
+ */
+int		ft_mem_eq(const void *ptr_1, const void *ptr_2, size_t n);
+
 /*
 **  mine
 */
