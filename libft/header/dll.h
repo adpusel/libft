@@ -45,9 +45,9 @@ int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr);
  * @return link add
  */
 
-t_dll_l dll_add_at_index(
-	t_dll_l link,
-	t_dll list,
+t_dll_l *dll_add_at_index(
+	t_dll_l *link,
+	t_dll *list,
 	size_t index);
 
 /*
