@@ -31,8 +31,12 @@
 # define ACTIVATE 1
 # define DISABLE 0
 
+/*
+**    dll
+*/
 # define TOP_LIST 0
 # define END_LIST 1
+# define ALL_LIST -1
 # define DISABLE 0
 
 

@@ -79,7 +79,7 @@ t_dll_l *dll_drop_index(t_dll *list, size_t *index);
 */
 
 /**
- * @param lim ==> if -1 searche in all list
+ * @param lim == ALL_LIST > search in all list
  *
  * @return func match between data and cur_link ? cur_link : NULL
  */
