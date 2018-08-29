@@ -59,7 +59,7 @@ static char *is_bad_label()
 
 char *all_test_str()
 {
-	mu_run_test(test_join_str);
+	mu_run_test(test_test_link);
 	mu_run_test(is_bad_label);
 	return (NULL);
 }
