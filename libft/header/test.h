@@ -40,7 +40,10 @@ extern int tests_run;
     DLL
 \*------------------------------------*/
 # define LINK_EQ(link_1, link_2)  (ft_link_test(link_1, link_2))
+
 # define LINK_CONTENT_EQ(link_1, link_2)  (ft_link_content(link_1, link_2))
+
+# define LINK_FUNC_EQ(link_1, link_2, func)  (ft_link_test_func(link_1, link_2, func))
 
 /*
 **    function =================================================================
@@ -51,5 +54,8 @@ int all_test();
     helper
 \*------------------------------------*/
 int ft_link_test(t_dll_l *link_1, t_dll_l *link_2);
+int ft_link_test_content(t_dll_l *link_1, t_dll_l *link_2);
+int ft_link_test_func(t_dll_l *link_1, t_dll_l *link_2,
+	int (*func)(t_dll_l *, t_dll_l *));
 
 #endif

@@ -32,20 +32,20 @@ int ret_5;
 /*------------------------------------*\
     link
 \*------------------------------------*/
-t_dll_l *link_1;
-t_dll_l *link_2;
-t_dll_l *link_3;
-t_dll_l *link_4;
+t_dll_l *g_link_1;
+t_dll_l *g_link_2;
+t_dll_l *g_link_3;
+t_dll_l *g_link_4;
 t_dll_l *link_5;
 
 static char *test_LINK_EQ()
 {
 	char *str = "manger";
-	new_dll_l("super", ft_strlen(str), &link_1);
-	new_dll_l("suer", ft_strlen(str), &link_2);
-	new_dll_l("suer", ft_strlen(str), &link_3);
-	TEST("test_LINK_EQ -- 1", LINK_EQ(link_1, link_2))
-	TEST("test_LINK_EQ -- 2", LINK_EQ(link_1, link_3))
+	new_dll_l("super", ft_strlen(str), &g_link_1);
+	new_dll_l("suer", ft_strlen(str), &g_link_2);
+	new_dll_l("suer", ft_strlen(str), &g_link_3);
+	TEST("test_LINK_EQ -- 1", LINK_EQ(g_link_1, g_link_2))
+	TEST("test_LINK_EQ -- 2", LINK_EQ(g_link_1, g_link_3))
 
 	//	printf("%s \n", test_1);
 
