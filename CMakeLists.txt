@@ -86,7 +86,7 @@ add_library(libft STATIC
         #HEADER
         ${HEADERS}
         libft/ft_library_headerd.h
-        )
+        libft/test/ft_struc_test.c)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)
 

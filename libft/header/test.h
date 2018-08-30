@@ -40,10 +40,14 @@ extern int tests_run;
     DLL
 \*------------------------------------*/
 # define LINK_EQ(link_1, link_2)  (ft_link_test(link_1, link_2))
-
 # define LINK_CONTENT_EQ(link_1, link_2)  (ft_link_content(link_1, link_2))
-
 # define LINK_FUNC_EQ(link_1, link_2, func)  (ft_link_test_func(link_1, link_2, func))
+
+
+/*------------------------------------*\
+    STRUCT
+\*------------------------------------*/
+# define STRUCT_EQ(link_1, link_2)  (ft_struct_test_func(link_1, link_2))
 
 /*
 **    function =================================================================
