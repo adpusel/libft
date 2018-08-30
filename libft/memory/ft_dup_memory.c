@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <define.h>
-#include "string.h"
-#include "../header/memory.h"
+#include "../ft_library_headerd.h"
+
 
 int ft_dup_memory(void **dest, const void *src, size_t size)
 {

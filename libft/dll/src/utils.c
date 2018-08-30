@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../header/struct/dll_struct.h"
-#include "../../header/define.h"
+#include "../ft_library_headerd.h"
 
 int		to_top_or_end(size_t index, t_dll *list)
 {

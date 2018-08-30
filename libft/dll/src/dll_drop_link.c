@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../dll_deep_header.h"
-#include "../../header/struct/dll_struct.h"
+#include "../ft_library_headerd.h"
 
 t_dll_l	*dll_drop_link(t_dll *list, t_dll_l *link)
 {

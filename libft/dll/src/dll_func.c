@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "../../header/struct/dll_struct.h"
-#include "../../header/define.h"
+#include "../ft_library_headerd.h"
 
 t_dll_l *dll_func_lim
 	(

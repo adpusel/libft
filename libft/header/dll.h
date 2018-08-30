@@ -72,7 +72,7 @@ t_dll_l dll_ptr_add_create(void *link, t_dll list);
  */
 t_dll_l *dll_drop_link(t_dll *list, t_dll_l *link);
 
-t_dll_l *dll_drop_index(t_dll *list, size_t *index);
+t_dll_l *dll_drop_index(t_dll *list, size_t index);
 
 /*
 **     with t_dll_ptr func ===========================================================

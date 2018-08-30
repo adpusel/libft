@@ -47,7 +47,7 @@ extern int tests_run;
 /*------------------------------------*\
     STRUCT
 \*------------------------------------*/
-# define STRUCT_EQ(link_1, link_2)  (ft_struct_test_func(link_1, link_2))
+# define STRUCT_EQ(struct_1, struct_2, func)  (ft_struct_test_func(struct_1, struct_2, func))
 
 /*
 **    function =================================================================
@@ -61,5 +61,6 @@ int ft_link_test(t_dll_l *link_1, t_dll_l *link_2);
 int ft_link_test_content(t_dll_l *link_1, t_dll_l *link_2);
 int ft_link_test_func(t_dll_l *link_1, t_dll_l *link_2,
 	int (*func)(t_dll_l *, t_dll_l *));
-
+int ft_struct_test_func(void *struct_1, void *struct_2,
+	int (*func)(void *, void *));
 #endif
