@@ -16,41 +16,41 @@
 /*
 **    printF  ss
 */
-# include "header/printf.h"
+# include "printf.h"
 
 /*
 **	for more clarter
 */
-# include "header/define.h"
+# include "define.h"
 
 /*
 **  memory function
 */
-#include "header/memory.h"
+#include "memory.h"
 
 /*
 **  text function
 */
-# include "header/string.h"
+# include "string.h"
 
 /*
 **    double linked link
 */
-# include "header/dll.h"
+# include "dll.h"
 
 /*
 **    type align 
 */
-# include "header/align.h"
+# include "align.h"
 
 /*
 **    io
 */
-# include "header/io.h"
+# include "io.h"
 
 /*
 **    test
 */
-# include "header/test.h"
+# include "test.h"
 
 #endif

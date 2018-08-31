@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../../ft_library_headerd.h"
+#include "ft_library_headerd.h"
 
 void	manage_ptr(t_pf *pf)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_library_headerd.h"
+#include "ft_library_headerd.h"
 
 int read_left(t_gnl *gnl, char **line, ssize_t len_before_bn)
 {

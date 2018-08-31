@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "string.h"
+
 int	check_char_into_str(char *str, char c)
 {
 	if (!str)

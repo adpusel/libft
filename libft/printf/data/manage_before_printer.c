@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_library_headerd.h"
+#include "ft_library_headerd.h"
 
 static void		manage_first_char(t_pf *pf)
 {

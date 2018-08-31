@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_library_headerd.h"
+#include "ft_library_headerd.h"
 
 int		manage_neg_star(int nb, t_pf *pf)
 {

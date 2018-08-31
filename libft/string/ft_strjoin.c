@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_library_headerd.h"
+#include "ft_library_headerd.h"
 
 int	ft_str_join(char **dest, char const *s1, char const *s2)
 {

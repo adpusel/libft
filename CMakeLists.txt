@@ -85,7 +85,7 @@ add_library(libft STATIC
 
         #HEADER
         ${HEADERS}
-        libft/ft_library_headerd.h
+        libft/header/ft_library_headerd.h
         libft/string/check_char_into_str.c)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}header/)

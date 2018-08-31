@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_library_headerd.h"
+#include "ft_library_headerd.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
