@@ -44,6 +44,7 @@ int		check_char_into_str(char *str, char c);
 ssize_t	ft_strclen(char *s, char c);
 int		ft_str_dup(char **dest, const char *src);
 int		ft_str_n_dup(char **dest, char const *src, size_t size);
+char	*str_find_first_char(char *str, char *char_researched);
 
 
 
