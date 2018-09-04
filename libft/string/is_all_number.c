@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "define.h"
-#include "string.h"
+#include "ft_string.h"
 
 int	is_all_number(char *s)
 {

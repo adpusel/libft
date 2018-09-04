@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 void	ft_put_uni(int c)
 {
-	char tab[5];
+	unsigned char tab[5];
 
 	if (c <= 126)
 		tab[0] = c;
@@ -37,5 +37,5 @@ void	ft_put_uni(int c)
 		tab[2] = ((c >> 6) & 0x3F) + 0x80;
 		tab[3] = (c & 0x3F) + 0x80;
 	}
-	ft_putstr_fd(tab, 1);
+	ft_putstr_fd((char*)tab, 1);
 }

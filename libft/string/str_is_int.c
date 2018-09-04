@@ -13,7 +13,7 @@
 # include <unistd.h>
 #include <io.h>
 #include "define.h"
-#include "string.h"
+#include "ft_string.h"
 
 int	str_is_int(char *str, int *out)
 {

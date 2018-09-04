@@ -1,56 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sll_construct.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/05/04 16:43:59 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBRARY_FT_LIBRARY_HEADER_H
-# define LIBRARY_FT_LIBRARY_HEADER_H
+#include "test.h"
 
-/*
-**    printF  ss
-*/
-# include "printf.h"
+char *real_option = "ief";
 
-/*
-**	for more clarter
-*/
-# include "define.h"
+static char *test_option()
+{
+	char *options[8] = {
+	 "name","-f", "-i", "-e"
+	};
+	char *finded_option;
+	ft_memory(&finded_option,11);
 
-/*
-**  memory function
-*/
-#include "memory.h"
+	TEST("test test_dup_mem 1", STR_EQ("super", finded_option) == TRUE)
+	return 0;
+}
 
-/*
-**  text function
-*/
-# include "ft_string.h"
 
-/*
-**    double linked link
-*/
-# include "dll.h"
-
-/*
-**    type align 
-*/
-# include "align.h"
-
-/*
-**    io
-*/
-# include "io.h"
-
-/*
-**    test
-*/
-# include "test.h"
-
-#endif
+char *all_test_memory()
+{
+	mu_run_test(test_option);
+	return (NULL);
+}
