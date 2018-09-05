@@ -44,6 +44,9 @@ int					ask_gnl(int fd, char **line, size_t *nb_line_ptr);
 int					open_file(char *name);
 void				raise_errno(void *ptr);
 int					ft_atoi(const char *s);
+int					get_option(int ac, char **av, char *found_options,
+ char *real_op);
+
 
 /*
 **    error funtion

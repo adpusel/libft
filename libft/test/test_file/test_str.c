@@ -1,4 +1,16 @@
-#include "test.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_library_headerd.h"
 
 /*------------------------------------*\
     lines
@@ -49,7 +61,6 @@ static char *test_join_str()
 	TEST("test join 4", STR_EQ("super", test_4) == TRUE && ret_4 == TRUE)
 	TEST("test join 5", STR_EQ("super", test_5) == TRUE && ret_5 == TRUE)
 
-	printf("%s \n", test_1);
 	return 0;
 }
 
