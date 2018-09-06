@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/memory.h"
+#include "ft_library_header.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

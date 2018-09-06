@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "ft_library_header.h"
 
 char *str_find_first_char(char *str, char *char_researched)
 {

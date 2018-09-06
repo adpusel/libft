@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-# include "ft_library_headerd.h"
+# include "ft_library_header.h"
 
 int	ft_str_eq(const char *s1, const char *s2)
 {

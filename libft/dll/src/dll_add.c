@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../dll_deep_header.h"
-#include "../../header/struct/dll_struct.h"
+#include "ft_library_header.h"
 
 static t_dll_l	*dll_list_empty(t_dll_l *link, t_dll *list)
 {

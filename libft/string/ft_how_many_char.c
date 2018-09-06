@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "ft_library_header.h"
 
 size_t ft_how_many_char(char c, char const *str)
 {

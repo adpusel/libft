@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "ft_library_header.h"
 
 int ft_struct_test_func(void *struct_1, void *struct_2,
 	int (*func)(void *, void *))

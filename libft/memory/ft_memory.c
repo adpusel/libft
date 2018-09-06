@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "ft_library_header.h"
 
 int ft_memory(void **mem_ptr, size_t size)
 {

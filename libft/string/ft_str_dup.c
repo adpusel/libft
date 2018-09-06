@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "ft_library_header.h"
 
 int ft_str_dup(char **dest, char const *src)
 {

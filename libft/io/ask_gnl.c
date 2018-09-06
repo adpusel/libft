@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_library_headerd.h"
+#include "ft_library_header.h"
 
 int ask_gnl(int fd, char **line, size_t *nb_line_ptr)
 {
