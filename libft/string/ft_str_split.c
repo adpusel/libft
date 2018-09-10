@@ -15,17 +15,16 @@
 
 void ft_free_split(char ***t)
 {
-	char *tmp;
 	char **tab;
 
+	if (t == NULL)
+		return;
 	tab = *t;
 	if (tab)
 	{
-		while (*tab != 0)
+		while (*tab != NULL)
 		{
-			tmp = *tab;
 			free(*tab);
-			tmp = NULL;
 			tab++;
 		}
 		free(*t);
@@ -38,6 +37,8 @@ int count_split(char **tab)
 	int i;
 
 	i = 0;
+	if (tab == NULL)
+		return (FAIL);
 	while (tab[i])
 	{
 		i++;
@@ -57,6 +58,7 @@ int fill_word(char **dest, const char *src, size_t size)
 // j'ai deja 3 argv sur cette struct
 // je dois pouvoir convertir en simple ptr, comme je demande juste un block de memoir. c'est trop chiant sinon !!
 // je fais le test avec les deux malloc
+// trop relou a faire en recursif ce truc // un peu comme gnl,
 static int ft_split(char const *str, int size_tab, char *skipped_char,
  char ***tab_ptr)
 {
@@ -65,8 +67,6 @@ static int ft_split(char const *str, int size_tab, char *skipped_char,
 	char **tab;
 
 	i = 0;
-	tab = *tab_ptr;
-
 	ft_skip_char((char **) &str, skipped_char);
 
 	// taille du mot
@@ -77,16 +77,18 @@ static int ft_split(char const *str, int size_tab, char *skipped_char,
 
 	// arret
 	if (*str == '\0')
-		return (ft_memory((void **) &tab, sizeof(char *) * size_tab));
+		return (ft_memory((void **) tab_ptr, sizeof(char *) * (size_tab + 1)));
 
 	// suite
-	ret = ft_split(str + i, size_tab + 1, skipped_char, &tab);
-
+	ret = ft_split(str + i, size_tab + 1, skipped_char, tab_ptr);
+	tab = *tab_ptr;
 	// si ok memoire, fill word
 	if (ret == OK)
+	{
 		ret = fill_word(tab + size_tab, str, i);
+	}
 
-	// si mem fuck
+		// si mem fuck
 	else
 	{
 		*tab = NULL;
@@ -95,10 +97,18 @@ static int ft_split(char const *str, int size_tab, char *skipped_char,
 	return (ret);
 }
 
-int ft_str_split(char const *string, char *char_skipped, char ***tab)
+int ft_str_split(char const *string, char *char_skipped, char ***tab,
+ int *size_tab)
 {
+	int ret;
+
 	if (string == NULL || char_skipped == NULL)
 		return (PTR_NULL);
-	return (ft_split(string, 0, char_skipped, tab));
+	ret = ft_split(string, 0, char_skipped, tab);
+	if (ret == OK && *tab == NULL)
+		ret = FAIL;
+	if (size_tab != NULL)
+		*size_tab = count_split(*tab);
+	return (ret);
 }
 

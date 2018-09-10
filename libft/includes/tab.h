@@ -1,62 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sll_construct.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/05/04 16:43:59 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBRARY_FT_LIBRARY_HEADER_H
-# define LIBRARY_FT_LIBRARY_HEADER_H
+#include "ft_library_header.h"
 
-/*
-**    printF  ss
-*/
-# include "printf.h"
-
-/*
-**	for more clarter
-*/
-# include "define.h"
-
-/*
-**  memory function
-*/
-#include "memory.h"
-
-/*
-**  text function
-*/
-# include "ft_string.h"
-
-/*
-**    double linked link
-*/
-# include "dll.h"
-
-/*
-**    type align 
-*/
-# include "align.h"
-
-/*
-**    io
-*/
-# include "io.h"
+#ifndef TAB_H
+#define TAB_H
 
 
-/*
-**    tab
-*/
-# include "tab.h"
-
-/*
-**    test
-*/
-# include "test.h"
+/**
+ * \brief 	if END_BY_NULL, stop when *tab == NULL
+ * 			give all *tab at the func, if it return TRUE, stop loop and return
+ * 			*tab
+ */
+void
+*tab_func_double(void **tab,
+ int (*func)(void *, void *), void *ptr, ssize_t lim);
 
 #endif

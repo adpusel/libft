@@ -93,7 +93,7 @@ add_library(libft STATIC
 
         #HEADER
         ${HEADERS}
-        )
+        libft/includes/tab.h)
 
 target_include_directories(libft PUBLIC ${LIB_SRC}includes/)
 

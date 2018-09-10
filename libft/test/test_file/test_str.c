@@ -16,35 +16,57 @@
     lines
 \*------------------------------------*/
 char *test_1;
+
 char *test_2;
+
 char *test_3;
+
 char *test_4;
+
 char *test_5;
 
 /*------------------------------------*\
     ret
 \*------------------------------------*/
 char *str_ret_1;
+
 char *str_ret_2;
+
 char *str_ret_3;
+
 char *str_ret_4;
+
 char *str_ret_5;
 
 /*------------------------------------*\
     ret
 \*------------------------------------*/
 int ret_1;
+
 int ret_2;
+
 int ret_3;
+
 int ret_4;
+
 int ret_5;
+
+/*------------------------------------*\
+    function test
+\*------------------------------------*/
+int print_tab_char(void *tab_ptr, void *ptr)
+{
+	(void) ptr;
+	printf("-%s ", tab_ptr);
+	return (FALSE);
+}
 
 static char *test_join_str()
 {
 	int *ret;
-	(void)ret;
+	(void) ret;
 	char *test;
-	(void)test;
+	(void) test;
 
 	ret_1 = ft_str_join(&test_1, "super", NULL);
 	ret_2 = ft_str_join(&test_2, NULL, "super");
@@ -68,12 +90,31 @@ static char *split_str()
 {
 	int ret;
 	char **split_tab;
+	char *skipped = " 	";
+	char *chaine;
+	int nb;
 
-	char *empty = "";
-	ret = ft_str_split(empty," ", &split_tab);
+	char *empty = " 	   ";
+	ret = ft_str_split(empty, skipped, &split_tab, &nb);
+	TEST("split_str -- 1", *split_tab == NULL && nb == FAIL)
+	printf(" \n");
+	//
 
-//	char *one_1 = "one";
-//	char *one_space = " one ";
+	char *one = "   		super   		";
+	ret = ft_str_split(one, skipped, &split_tab, &nb);
+	TEST("split_str -- 2", STR_EQ("super", *split_tab) == TRUE &&
+	nb == 1)
+	printf(" \n");
+	//
+	//
+	chaine = "super mager pas cher";
+	ret = ft_str_split(chaine, skipped, &split_tab, &nb);
+	tab_func_double((void **) split_tab, print_tab_char, NULL, END_BY_NULL);
+	printf(" \n");
+
+
+	//	char *one_1 = "one";
+	//	char *one_space = " one ";
 
 
 

@@ -19,13 +19,13 @@ int main(int ac, char **ap)
 {
 	(void) ac;
 	(void) ap;
-//	all_test();
-	char *a = "super";
-	char **a1 = &a;
+	all_test();
+//	char *a = "super";
+//	char **a1 = &a;
 	// j'ai mon tab, je veux mettre ce ptr dans un autre ptr
 
-	char **a2 = (char**)&a1;
-	*a2 = NULL;
+//	char **a2 = (char**)&a1;
+//	*a2 = NULL;
 
 	return (EXIT_SUCCESS);
 }
