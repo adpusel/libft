@@ -30,9 +30,21 @@
 **    construct ================================================================
 */
 int		new_dll(int is_ptr, t_dll **dll_ptr);
-void	destroy_dll(t_dll **ptr_list, void (*func)(void *));
+
+/**
+ * \brief clear ou detruit une dll
+ * @param func if null free la list en entier
+ */
+void destroy_dll(t_dll **ptr_list, void (*func)(void *));
+
+/**
+ * \brief clear ou detruit une dll
+ * @param func if null free la list en entier
+ */
+void destroy_dll_stack(t_dll *list, void (*func)(void *));
 
 void destroy_dll_l(t_dll_l **l, void (*func)(void *));
+
 /**
  *
  * @param  size === IS_PTR_LINK == no copy the content
@@ -49,7 +61,6 @@ int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr);
  * @param index == list.length 	>> add end dll
  * @return link add
  */
-
 t_dll_l *dll_add_at_index(
 	t_dll_l *link,
 	t_dll *list,
@@ -80,13 +91,12 @@ t_dll_l *dll_drop_index(t_dll *list, size_t index);
 
 /**
  * @param lim == ALL_LIST > search in all list
- *
  * @return func match between data and cur_link ? cur_link : NULL
  */
-t_dll_l *dll_func_lim(
-	t_dll *lst,
-	int (*func)(t_dll_l *, void *pVoid),
-	void *data_ptr,
-	ssize_t lim);
+t_dll_l *dll_func(
+ t_dll *lst,
+ int (*func)(t_dll_l *, void *pVoid),
+ void *data_ptr,
+ ssize_t lim);
 
 #endif

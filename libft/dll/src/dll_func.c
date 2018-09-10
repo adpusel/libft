@@ -12,13 +12,13 @@
 
 #include "ft_library_header.h"
 
-t_dll_l *dll_func_lim
-	(
-		t_dll *lst,
-		int (*func)(t_dll_l *, void *),
-		void *data_ptr,
-		ssize_t lim
-	)
+t_dll_l *dll_func
+ (
+  t_dll *lst,
+  int (*func)(t_dll_l *, void *),
+  void *data_ptr,
+  ssize_t lim
+ )
 {
 	t_dll_l *link;
 
@@ -32,4 +32,29 @@ t_dll_l *dll_func_lim
 		--lim;
 	}
 	return (NULL);
+}
+
+ssize_t dll_func_index
+ (
+  t_dll *lst,
+  int (*func)(t_dll_l *, void *),
+  void *data_ptr,
+  ssize_t lim
+ )
+{
+	t_dll_l *link;
+	ssize_t	i;
+
+	link = lst->top;
+	i = 0;
+	lim = lim == ALL_LIST ? lst->length : lim;
+	while (lim)
+	{
+		if (func(link, data_ptr) == TRUE)
+			return (i);
+		i++;
+		link = link->next;
+		--lim;
+	}
+	return (-1);
 }

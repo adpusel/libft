@@ -55,6 +55,7 @@ file(GLOB FILE_TAB "${LIB_SRC}tab/*.c")
 #*------------------------------------*/
 file(GLOB FILE_TEST "${LIB_SRC}test/*")
 file(GLOB FILE_TEST_FILE "${LIB_SRC}test/test_file/*")
+file(GLOB FILE_TEST_FILE "${LIB_SRC}test/test_file/*")
 
 #*------------------------------------*\
 #    HEADER
@@ -93,8 +94,13 @@ add_library(libft STATIC
 
         #HEADER
         ${HEADERS}
-        libft/includes/tab.h)
+        )
 
-target_include_directories(libft PUBLIC ${LIB_SRC}includes/)
+#target_include_directories(libft PUBLIC ${LIB_SRC}includes/)
+#target_include_directories(libft PUBLIC ./*)
+#target_include_directories(libft PUBLIC ./**/)
+#target_include_directories(libft PUBLIC ./**/**/)
+target_include_directories(libft PUBLIC libft/includes/)
+target_include_directories(libft PUBLIC libft)
 
 target_link_libraries(Library_run libft)

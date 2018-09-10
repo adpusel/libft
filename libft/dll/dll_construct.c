@@ -68,10 +68,7 @@ int new_dll(int is_ptr, t_dll **dll_ptr)
 	return (ret);
 }
 
-void destroy_dll(
- t_dll **l,
- void (*func)(void *)
-)
+void destroy_dll(t_dll **l, void (*func)(void *))
 {
 	t_dll *list;
 	t_dll_l *current_link;
@@ -95,5 +92,12 @@ void destroy_dll(
 	list->length = 0;
 	list->top = NULL;
 	list->end = NULL;
-	free(list);
+}
+
+
+void destroy_dll_stack(t_dll *list, void (*func)(void *))
+{
+	if (list == NULL)
+		return ;
+	destroy_dll(&list, func);
 }

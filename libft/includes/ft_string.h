@@ -57,6 +57,7 @@ void ft_free_split(char ***t);
 
 
 
+
 /*
 **    check str
 */
