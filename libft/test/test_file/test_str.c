@@ -64,14 +64,25 @@ static char *test_join_str()
 	return 0;
 }
 
-static char *is_bad_label()
+static char *split_str()
 {
+	int ret;
+	char **split_tab;
+
+	char *empty = "";
+	ret = ft_str_split(empty," ", &split_tab);
+
+//	char *one_1 = "one";
+//	char *one_space = " one ";
+
+
+
 	return (NULL);
 }
 
 char *all_test_str()
 {
 	mu_run_test(test_join_str);
-	mu_run_test(is_bad_label);
+	mu_run_test(split_str);
 	return (NULL);
 }

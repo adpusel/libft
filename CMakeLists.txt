@@ -46,6 +46,11 @@ file(GLOB FILE_PRINTF_4 "${LIB_SRC}printf/**/**/**/*.c")
 file(GLOB FILE_STRING "${LIB_SRC}string/*.c")
 
 #*------------------------------------*\
+#    TAB
+#*------------------------------------*/
+file(GLOB FILE_TAB "${LIB_SRC}tab/*.c")
+
+#*------------------------------------*\
 #    TEST
 #*------------------------------------*/
 file(GLOB FILE_TEST "${LIB_SRC}test/*")
@@ -78,6 +83,9 @@ add_library(libft STATIC
 
         #string
         ${FILE_STRING}
+
+        #tab
+        ${FILE_TAB}
 
         #test
         ${FILE_TEST}

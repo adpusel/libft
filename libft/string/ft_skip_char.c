@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2017/11/16 12:46:02 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_library_header.h"
+#include "ft_library_header.h"
 
-int	check_char_into_str(char *str, char c)
+/**
+ * \do 	avance ptr_str a chaque fois que le c match avec la chaine a skip
+ * 		s'arrete si end_str
+ * @param ptr_str
+ * @param skipped_char
+ */
+void	ft_skip_char(char **ptr_str, char *skipped_char)
 {
-	if (str == NULL)
-		return (PTR_NULL);
-	while (*str)
+	while (**ptr_str && check_char_into_str(skipped_char, **ptr_str) == TRUE)
 	{
-		if (*str == c)
-			return (1);
-		str++;
+	    ++(*ptr_str);
 	}
-	return (0);
 }

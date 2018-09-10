@@ -63,14 +63,8 @@ static char *test_dup_mem()
 	return 0;
 }
 
-static char *is_bad_label()
-{
-	return (NULL);
-}
-
 char *all_test_memory()
 {
 	mu_run_test(test_dup_mem);
-	mu_run_test(is_bad_label);
 	return (NULL);
 }

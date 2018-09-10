@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2017/11/16 12:46:02 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_library_header.h"
+#include "ft_library_header.h"
 
-int	check_char_into_str(char *str, char c)
+void
+*tab_func_double(void **tab,
+	int (*func)(void *, void *), void *ptr, ssize_t lim)
 {
-	if (str == NULL)
-		return (PTR_NULL);
-	while (*str)
+	size_t i;
+
+	i = 0;
+	if (tab == NULL)
+		return (NULL);
+	if (lim == END_BY_NULL)
 	{
-		if (*str == c)
-			return (1);
-		str++;
+		while (*tab != NULL)
+		{
+			if (func(*tab, ptr) == TRUE)
+				return (*tab);
+			++tab;
+		}
 	}
-	return (0);
+	else
+	{
+		while (i < (size_t)lim)
+		{
+			if (func(tab[i], ptr) == TRUE)
+				return (tab[i]);
+			++i;
+		}
+	}
+	return (NULL);
 }

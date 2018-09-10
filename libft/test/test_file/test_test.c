@@ -62,14 +62,8 @@ static char *test_LINK_EQ()
 	return 0;
 }
 
-static char *is_bad_label()
-{
-	return (NULL);
-}
-
 char *all_test_test()
 {
 	mu_run_test(test_LINK_EQ);
-	mu_run_test(is_bad_label);
 	return (NULL);
 }

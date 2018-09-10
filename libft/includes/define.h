@@ -39,6 +39,10 @@
 # define ALL_LIST -1
 # define DISABLE 0
 
+/*
+**    tab
+*/
+# define END_BY_NULL -1
 
 # define ALLOC_MEM(ret, function) \
 			if (ret == OK)			 \

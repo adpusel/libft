@@ -11,8 +11,14 @@
 /* ************************************************************************** */
 
 #include "ft_library_header.h"
-
-char *str_find_first_char(char *str, char *char_researched)
+/**
+ * retur un ptr sur la premiere occurance d'en char de la chaine donner en
+ * param
+ * @param str
+ * @param char_researched
+ * @return
+ */
+char *c_first_occur(char *str, char *char_researched)
 {
 	if (str == NULL)
 		return (NULL);
