@@ -22,6 +22,7 @@ int ft_memory(void **mem_ptr, size_t size)
 	{
 		ret = MEM_LACK;
 		*mem_ptr = NULL;
+		perror("ERROR SYSTEM CALL: ");
 	}
 	else
 	{
