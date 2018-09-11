@@ -61,6 +61,12 @@ void ft_free_split(char ***t);
 /*
 **    check str
 */
+/**
+ * \brief check s'il y a bien que des nb et fait un atoi dessus, work with +/-
+ * devant
+ * @param out le int getter
+ * @return TRUE si ok, FAIL si pas ok
+ */
 int		str_is_int(char *str, int *out);
 int		is_all_number(char *s);
 

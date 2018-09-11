@@ -17,7 +17,7 @@ int	is_all_number(char *s)
 {
 	if (*s == '-' || *s == '+')
 		s++;
-	while (*s)
+	while (*s != '\0')
 	{
 		if (ft_isdigit(*s) == FALSE)
 			return (FALSE);
