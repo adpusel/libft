@@ -29,7 +29,7 @@
 /*
 **    construct ================================================================
 */
-int		new_dll(int is_ptr, t_dll **dll_ptr);
+int new_dll(int is_ptr, t_dll **dll_ptr);
 
 /**
  * \brief clear ou detruit une dll
@@ -62,9 +62,9 @@ int new_dll_l(void *content, ssize_t size, t_dll_l **link_ptr);
  * @return link add
  */
 t_dll_l *dll_add_at_index(
-	t_dll_l *link,
-	t_dll *list,
-	size_t index);
+ t_dll_l *link,
+ t_dll *list,
+ size_t index);
 
 /*
 **    add and create
@@ -98,5 +98,17 @@ t_dll_l *dll_func(
  int (*func)(t_dll_l *, void *pVoid),
  void *data_ptr,
  ssize_t lim);
+
+/**
+ * @param lim == ALL_LIST > search in all list
+ * @return l'index du link ou -1 si pas de link
+ */
+ssize_t dll_func_index
+ (
+  t_dll *lst,
+  int (*func)(t_dll_l *, void *),
+  void *data_ptr,
+  ssize_t lim
+ );
 
 #endif
