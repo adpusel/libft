@@ -19,7 +19,7 @@ int ft_str_dup(char **dest, char const *src)
 	char *str_in;
 
 	size_str = ft_strlen(src);
-	ret = ft_memory((void **) &str_in, size_str + 1);
+	ret = ft_str_new(&str_in, size_str);
 	if (ret == OK)
 	{
 		ft_memcpy(str_in, src, size_str);
@@ -33,7 +33,7 @@ int ft_str_n_dup(char **dest, char const *src, size_t size)
 	int ret;
 	char *str_in;
 
-	ret = ft_memory((void **) &str_in, size + 1);
+	ret = ft_str_new(&str_in, size);
 	if (ret == OK)
 	{
 		ft_memcpy(str_in, src, size);

@@ -17,8 +17,6 @@ int ft_dup_memory(void **dest, const void *src, size_t size)
 	void *mem;
 	static int ret;
 
-	if (src == NULL)
-		return (PTR_NULL);
 	ret = ft_memory(&mem, size);
 	if (ret == OK)
 	{

@@ -51,7 +51,8 @@ int fill_word(char **dest, const char *src, size_t size)
 	int ret;
 
 	ret = ft_str_new(dest, size);
-	ft_memcpy(*dest, src, size);
+	if (ret == OK)
+		ft_memcpy(*dest, src, size);
 	return (ret);
 }
 
@@ -65,7 +66,9 @@ static int ft_split(char const *str, int size_tab, char *skipped_char,
 	i = 0;
 	ft_skip_char((char **) &str, skipped_char);
 	while (str[i] && check_char_into_str(skipped_char, str[i]) == FALSE)
+	{
 		i++;
+	}
 	if (*str == '\0')
 		return (ft_memory((void **) tab_ptr, sizeof(char *) * (size_tab + 1)));
 	ret = ft_split(str + i, size_tab + 1, skipped_char, tab_ptr);

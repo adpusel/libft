@@ -25,7 +25,7 @@ int	ft_str_join(char **dest, char const *s1, char const *s2)
 	}
 	size_1 = ft_strlen(s1);
 	size_2 = ft_strlen(s2);
-	ret = ft_memory((void**)dest, size_1 + size_2 + 1);
+	ret = ft_str_new(dest, size_1 + size_2);
 	if (ret == OK)
 	{
 		ft_memcpy(*dest, s1, size_1);

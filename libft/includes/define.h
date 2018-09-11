@@ -17,7 +17,7 @@
 **    code err ret
 */
 # define MEM_LACK 0
-# define PTR_NULL 2
+# define PTR_NULL 0
 
 # define TRUE 1
 # define OK 1
