@@ -14,7 +14,7 @@
 
 int ft_memory(void **mem_ptr, size_t size)
 {
-	void *mem;
+	static void *mem;
 	static int ret;
 
 	mem = malloc(size);

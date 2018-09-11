@@ -12,23 +12,16 @@
 
 #include "ft_library_header.h"
 
-
 int ft_dup_memory(void **dest, const void *src, size_t size)
 {
 	void *mem;
 	static int ret;
 
 	if (src == NULL)
-	    return (PTR_NULL);
-	mem = malloc(size == 0 ? 1 : size);
-	if (mem == NULL)
+		return (PTR_NULL);
+	ret = ft_memory(&mem, size);
+	if (ret == OK)
 	{
-		ret = MEM_LACK;
-		*dest = NULL;
-	}
-	else
-	{
-		ret = TRUE;
 		ft_memcpy(mem, src, size);
 		*dest = mem;
 	}
