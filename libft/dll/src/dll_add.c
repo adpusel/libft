@@ -76,7 +76,7 @@ t_dll_l *dll_add_at_index(t_dll_l *link, t_dll *list, ssize_t index)
 		return (dll_list_empty(link, list));
 	else if (index == 0)
 		return (dll_push(link, list));
-	else if (index >= list->length)
+	else if (index >= (ssize_t)list->length)
 		return (dll_add(link, list));
 	return (push_index(link, list, index));
 }
