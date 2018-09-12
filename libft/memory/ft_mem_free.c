@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-void str_free(char **str)
+void ft_str_free(char **str)
 {
 	if (*str != NULL)
 	{
