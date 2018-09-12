@@ -44,6 +44,17 @@ int					ask_gnl(int fd, char **line, size_t *nb_line_ptr);
 int					open_file(char *name);
 void				raise_errno(void *ptr);
 int					ft_atoi(const char *s);
+
+/**
+ * //todo prendre un ptr ou retourne le nb de parametre avancer pour la suite du
+ * 	programme
+ * \brief get les options de la premiere line donner par argv et
+ * @param ac
+ * @param av
+ * @param found_options
+ * @param real_op
+ * @return
+ */
 int					get_option(int ac, char **av, char *found_options,
  char *real_op);
 

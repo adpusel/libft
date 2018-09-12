@@ -17,10 +17,12 @@ int ask_gnl(int fd, char **line, size_t *nb_line_ptr)
 	int ret = 0;
 	static ssize_t nb_line = -1;
 
-	ft_mem_free(line);
+	str_free(line);
 	ret = get_next_line(fd, line);
 	nb_line += 1;
 	if (nb_line_ptr)
 		*nb_line_ptr = (size_t) nb_line;
+	if (ret == 0)
+		str_free(line);
 	return (ret > 0);
 }
