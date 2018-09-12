@@ -39,7 +39,8 @@ typedef struct		s_gnl
  * 			0 ==> if EFO
  */
 int					get_next_line(const int fd, char **line);
-int					ask_gnl(int fd, char **line, size_t *nb_line_ptr);
+int					ask_gnl(int fd, char **line_ptr, size_t *nb_line_ptr,
+ int need_new_line);
 
 int					open_file(char *name);
 void				raise_errno(void *ptr);
@@ -58,6 +59,14 @@ int					ft_atoi(const char *s);
 int					get_option(int ac, char **av, char *found_options,
  char *real_op);
 
+/**
+ * \brief loop sur le tab tant que *tab != NULL
+ * @param splitted_tab
+ * @param found_options
+ * @param real_op
+ * @return
+ */
+int get_option_gnl(char **splitted_tab, char *found_options, char *real_op);
 
 /*
 **    error funtion

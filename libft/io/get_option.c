@@ -43,3 +43,16 @@ int get_option(int ac, char **av, char *found_options, char *real_op)
 	}
 	return (TRUE);
 }
+
+int get_option_gnl(char **splitted_tab, char *found_options, char *real_op)
+{
+	while (*splitted_tab != NULL)
+	{
+		if (**splitted_tab != '-')
+			return (FAIL);
+		if (argv_test((*splitted_tab) + 1, found_options, real_op) == FAIL)
+			return (FALSE);
+		++splitted_tab;
+	}
+	return (TRUE);
+}

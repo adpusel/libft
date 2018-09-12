@@ -12,21 +12,20 @@
 
 #include "ft_library_header.h"
 
-int ask_gnl(int fd, char **line, size_t *nb_line_ptr)
+int ask_gnl(int fd, char **line_ptr, size_t *nb_line_ptr, int need_new_line)
 {
-	int ret = 0;
+	static int ret = 0;
 	static ssize_t nb_line = -1;
-	static int is_first = 0;
+	static char *line = NULL;
 
-	if (is_first == 0)
+	if (need_new_line == TRUE)
 	{
-		is_first = 1;
-		*line = NULL;
+		ft_str_free(&line);
+		ret = get_next_line(fd, &line);
+		nb_line += 1;
 	}
-	ft_str_free(line);
-	ret = get_next_line(fd, line);
-	nb_line += 1;
+	*line_ptr = line;
 	if (nb_line_ptr)
-		*nb_line_ptr = (size_t) nb_line;
+		*nb_line_ptr = (size_t)nb_line;
 	return (ret > 0);
 }
