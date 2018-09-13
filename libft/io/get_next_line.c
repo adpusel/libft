@@ -23,7 +23,7 @@ int read_left(t_gnl *gnl, char **line, ssize_t len_before_bn)
 						   gnl->str,
 						   len_before_bn);
 		tmp = gnl->str;
-		ret && (ret = ft_str_n_dup(&gnl->str,
+		ret == OK && (ret = ft_str_n_dup(&gnl->str,
 								   gnl->str + len_before_bn + 1,
 								   ft_strlen(gnl->str) - len_before_bn - 1));
 		ft_str_free(&tmp);
@@ -33,7 +33,7 @@ int read_left(t_gnl *gnl, char **line, ssize_t len_before_bn)
 	{
 		ret = ft_str_n_dup(line, gnl->str, ft_strlen(gnl->str));
 		ft_str_free(&gnl->str);
-		ret && (ret = ft_memory((void **)&gnl->str, 1));
+		ret == OK && (ret = ft_memory((void **)&gnl->str, 1));
 		return (ret);
 	}
 }
