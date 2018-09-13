@@ -94,7 +94,7 @@ add_library(libft STATIC
 
         #HEADER
         ${HEADERS}
-        )
+        file/memory/ft_mem_eq.c)
 
 #target_include_directories(libft PUBLIC ${LIB_SRC}includes/)
 #target_include_directories(libft PUBLIC ./*)

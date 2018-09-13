@@ -13,7 +13,7 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include <struct/dll_struct.h>
+#include "struct/dll_struct.h"
 
 #define TEST(message, test) do { \
     if (!(test)) return message; \
