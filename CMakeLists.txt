@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_FLAGS "-Wall -Wextra -Werror")
 
 
-set(LIB_SRC libft/)
+set(LIB_SRC file/)
 
 add_executable (Library_run main.c)
 
@@ -100,7 +100,7 @@ add_library(libft STATIC
 #target_include_directories(libft PUBLIC ./*)
 #target_include_directories(libft PUBLIC ./**/)
 #target_include_directories(libft PUBLIC ./**/**/)
-target_include_directories(libft PUBLIC libft/includes/)
+target_include_directories(libft PUBLIC file/includes/)
 target_include_directories(libft PUBLIC libft)
 
 target_link_libraries(Library_run libft)
