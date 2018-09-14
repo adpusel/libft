@@ -52,7 +52,7 @@ void	ft_skip_char(char **ptr_str, char *skipped_char);
 /*
 **    split
 */
-int ft_str_split(char *string, t_split *split);
+int ft_str_split(char *string, char *skipped_char, t_split *split);
 void ft_free_split(char ***t);
 
 

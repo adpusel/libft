@@ -89,27 +89,26 @@ static char *test_join_str()
 static char *split_str()
 {
 	int ret;
-	char **split_tab;
+	t_split split;
 	char *skipped = " 	";
 	char *chaine;
-	int nb;
 
 	char *empty = " 	   ";
-	ret = ft_str_split(empty, skipped, &split_tab, &nb);
-	TEST("split_str -- 1", *split_tab == NULL && nb == FAIL)
+	ret = ft_str_split(empty, skipped, &split);
+	TEST("split_str -- 1", *split.tab == NULL && split.size == FAIL)
 	printf(" \n");
 	//
 
 	char *one = "   		super   		";
-	ret = ft_str_split(one, skipped, &split_tab, &nb);
-	TEST("split_str -- 2", STR_EQ("super", *split_tab) == TRUE &&
-	nb == 1)
+	ret = ft_str_split(one, skipped,&split);
+	TEST("split_str -- 2", STR_EQ("super", *split.tab) == TRUE &&
+	 split.size == 1)
 	printf(" \n");
 	//
 	//
 	chaine = "super mager pas cher";
-	ret = ft_str_split(chaine, skipped, &split_tab, &nb);
-	tab_func_double((void **) split_tab, print_tab_char, NULL, END_BY_NULL);
+	ret = ft_str_split(chaine, skipped, &split);
+	tab_func_double((void **) split.tab, print_tab_char, NULL, END_BY_NULL);
 	printf(" \n");
 
 

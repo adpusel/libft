@@ -83,12 +83,13 @@ static int ft_split(char const *str, int size_tab, char *skipped_char,
 	return (ret);
 }
 
-int ft_str_split(char *string, t_split *split)
+int ft_str_split(char *string, char *skipped_char, t_split *split)
 {
 	int ret;
 
-	if (string == NULL || split->char_skipped== NULL)
+	if (string == NULL || split->char_skipped == NULL)
 		return (PTR_NULL);
+	split->char_skipped = skipped_char;
 	ret = ft_split(string, 0, split->char_skipped, &split->tab);
 	if (ret == OK && split->tab == NULL)
 		ret = FAIL;
