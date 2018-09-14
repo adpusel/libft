@@ -24,6 +24,15 @@ typedef struct		s_gnl
 	int				ret_read;
 }					t_gnl;
 
+typedef struct		s_split
+{
+	char			*line;
+	char 			**tab;
+	char			*char_skipped;
+	int 			size;
+} 					t_split;
+
+
 
 /*
 **    gnl ======================================================================

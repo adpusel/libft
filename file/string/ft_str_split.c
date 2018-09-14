@@ -83,17 +83,15 @@ static int ft_split(char const *str, int size_tab, char *skipped_char,
 	return (ret);
 }
 
-int ft_str_split(char const *string, char *char_skipped, char ***tab,
- int *size_tab)
+int ft_str_split(char *string, t_split *split)
 {
 	int ret;
 
-	if (string == NULL || char_skipped == NULL)
+	if (string == NULL || split->char_skipped== NULL)
 		return (PTR_NULL);
-	ret = ft_split(string, 0, char_skipped, tab);
-	if (ret == OK && *tab == NULL)
+	ret = ft_split(string, 0, split->char_skipped, &split->tab);
+	if (ret == OK && split->tab == NULL)
 		ret = FAIL;
-	if (size_tab != NULL)
-		*size_tab = count_split(*tab);
+	split->size = count_split(split->tab);
 	return (ret);
 }
