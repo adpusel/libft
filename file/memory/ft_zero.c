@@ -12,7 +12,7 @@
 
 #include "ft_library_header.h"
 
-void ft_zero(void *ptr)
+void ft_zero(void *ptr, size_t size)
 {
-	ft_memset(ptr, 0, sizeof(*ptr));
+	ft_memset(ptr, 0, size);
 }

@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_dup_memory(void **dest, const void *src, size_t size);
 void	ft_str_free(char **str);
-void	ft_zero(void *ptr);
+void ft_zero(void *ptr, size_t size);
 
 
 /**
