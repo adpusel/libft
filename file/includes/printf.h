@@ -84,9 +84,24 @@ void				ft_set_buff(t_buff *buff);
 void				buff_set_or_print(char *for_print, t_pf *pf);
 void				buff_set_or_print_char(char for_print, t_pf *pf);
 char				*ft_strcat(char *s1, const char *s2);
-/*
-**	head printf /////////////////////////////////
-*/
+
+
+
+/*void		put_color(t_pf *pf)
+{
+	if (pf->op.color == 'R')
+		buff_set_or_print("\033[31m", pf);
+	else if (pf->op.color == 'N')
+		buff_set_or_print("\033[32m", pf);
+	else if (pf->op.color == 'Y')
+		buff_set_or_print("\033[33m", pf);
+	else if (pf->op.color == 'B')
+		buff_set_or_print("\033[36m", pf);
+	if (pf->op.police == 'C')
+		buff_set_or_print("\033[5m", pf);
+	else if (pf->op.police == 'L')
+		buff_set_or_print("\033[1m]", pf);
+}*/
 long				ft_printf(char *str, ...);
 
 /*

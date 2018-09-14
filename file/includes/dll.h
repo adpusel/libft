@@ -110,5 +110,17 @@ ssize_t dll_func_index
   void *data_ptr,
   ssize_t lim
  );
+/**
+ * \brief parcourt tout la list a partir de where
+ * @param lim
+ * @return
+ */
+t_dll_l *dll_func_where
+ (
+  t_dll *lst,
+  int (*func)(t_dll_l *, void *),
+  void *data_ptr,
+  ssize_t lim
+ );
 
 #endif

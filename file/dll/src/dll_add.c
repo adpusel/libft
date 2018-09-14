@@ -71,8 +71,8 @@ t_dll_l *dll_add_at_index(t_dll_l *link, t_dll *list, ssize_t index)
 	if (link == NULL || list == NULL)
 		return (NULL);
 	if (index == ALL_LIST)
-	    index = list->length + 1;
-	else if (list->length == 0)
+	    index = list->length;
+	if (list->length == 0)
 		return (dll_list_empty(link, list));
 	else if (index == 0)
 		return (dll_push(link, list));

@@ -34,6 +34,28 @@ t_dll_l *dll_func
 	return (NULL);
 }
 
+t_dll_l *dll_func_where
+ (
+  t_dll *lst,
+  int (*func)(t_dll_l *, void *),
+  void *data_ptr,
+  ssize_t lim
+ )
+{
+	t_dll_l *link;
+
+	link = lst->where;
+	lim = lim == ALL_LIST ? lst->length : lim;
+	while (lim && link)
+	{
+		if (func(link, data_ptr) == TRUE)
+			return (link);
+		link = link->next;
+		--lim;
+	}
+	return (NULL);
+}
+
 ssize_t dll_func_index
  (
   t_dll *lst,
