@@ -44,9 +44,9 @@
 */
 # define END_BY_NULL -1
 
-# define ALLOC_MEM(ret, function) \
-			if (ret == OK)			 \
-				ret = (function);
-# define IF_MEM_FREE(instruct) \
-			if (ret == OK) { instruct}
+/*
+**    ask io
+*/
+# define PREV 2
+# define NEXT 4
 #endif
