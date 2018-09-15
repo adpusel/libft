@@ -56,7 +56,7 @@ t_dll_l *dll_func_where
 	return (NULL);
 }
 
-ssize_t dll_func_index
+size_t dll_func_index
  (
   t_dll *lst,
   int (*func)(t_dll_l *, void *),

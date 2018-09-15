@@ -103,7 +103,7 @@ t_dll_l *dll_func(
  * @param lim == ALL_LIST > search in all list
  * @return l'index du link ou -1 si pas de link
  */
-ssize_t dll_func_index
+size_t dll_func_index
  (
   t_dll *lst,
   int (*func)(t_dll_l *, void *),
