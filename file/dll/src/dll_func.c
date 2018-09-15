@@ -65,7 +65,7 @@ ssize_t dll_func_index
  )
 {
 	t_dll_l *link;
-	ssize_t	i;
+	size_t	i;
 
 	link = lst->top;
 	i = 0;
