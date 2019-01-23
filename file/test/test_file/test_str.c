@@ -107,8 +107,6 @@ static char *split_str()
 	//
 	//
 	chaine = "super mager pas cher";
-	ret = ft_str_split(chaine, skipped, &split);
-	tab_func_double((void **) split.tab, print_tab_char, NULL, END_BY_NULL);
 	printf(" \n");
 
 
