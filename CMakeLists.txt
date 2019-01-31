@@ -11,6 +11,9 @@ set(LIB_SRC file/)
 
 add_executable (Library_run main.c)
 
+file(GLOB TEST "${LIB_SRC}printf2/*.c")
+
+
 #*------------------------------------*\
 #    CHAR
 #*------------------------------------*/
@@ -64,6 +67,8 @@ file(GLOB FILE_TEST_FILE "${LIB_SRC}test/test_file/*")
 file(GLOB HEADERS "${LIB_SRC}header/*")
 
 add_library(libft STATIC
+        ${TEST}
+
         #char
         ${FILE_CHAR}
 
