@@ -7,10 +7,10 @@ void printNumber(long long nb);
 // je print tout le but c'est pas de refaire super pf
 
 // sens
-#define STR 0
-#define UNSIGNED 1
-#define NUMBER 2
-#define CHAR 3
+#define STR 's'
+#define UNSIGNED 'u'
+#define DECIMAL 'd'
+#define CHAR 'c'
 
 // manage number
 #define NB_SIZE 22
@@ -35,7 +35,7 @@ typedef struct s_testPr
 	// si c'est number
 	char tab[25]; // si c'est un nb, sera pointer par str
 	char tab_str[22];
-} t_pf_data;
+} t_pf2;
 
 /*
  *  lim de 20 + 1  \\  1                    // 1
@@ -61,7 +61,7 @@ void get_nb_to_str(long long nb, char *tab)
 /*
  * il est trigger des que j'ai une % qui apparait
  * */
-int parser(char **str_ptr, t_pf_data *data)
+int parser(char **str_ptr, t_pf2 *data)
 {
 	char *str = *str_ptr;
 
@@ -70,7 +70,7 @@ int parser(char **str_ptr, t_pf_data *data)
 	while (ft_isdigit(*str))
 		++str;
 	if (*str == 'd')
-		data->type = NUMBER;
+		data->type = DECIMAL;
 	else if (*str == 'u')
 		data->type = UNSIGNED;
 	else if (*str == 's')
@@ -82,38 +82,39 @@ int parser(char **str_ptr, t_pf_data *data)
 	return 0;
 }
 
-int calcul(t_pf_data *all, long long data)
+int calcul(t_pf2 *s, long long data)
 {
 	static int i;
 
 	i = 0;
 	// nb
-	if (all->type == UNSIGNED)
-		all->tab[IS_U] = 1;
-	if (all->type == UNSIGNED || all->type == NUMBER)
+	if (s->type == UNSIGNED)
+		s->tab[IS_U] = 1;
+	if (s->type == UNSIGNED || s->type == DECIMAL)
 	{
-		get_nb_to_str(data, all->tab);
-		while (all->tab[NB_SIZE]--)
-			all->tab_str[i++] = all->tab[(int) all->tab[NB_SIZE]];
-		all->str = all->tab_str;
+		get_nb_to_str(data, s->tab);
+		while (s->tab[NB_SIZE]--)
+			s->tab_str[i++] = s->tab[(int) s->tab[NB_SIZE]];
+		s->str = s->tab_str;
+
 	}
 		// str
-	else if (all->type == CHAR)
-		all->cha = data;
-	else if (all->type == STR)
-		all->str = (char *) data;
+	else if (s->type == CHAR)
+		s->cha = data;
+	else if (s->type == STR)
+		s->str = (char *) data;
 	else
 		return (1);
 	return (0);
 
 	// calculer la taille a garder en fonction
-	if (all->pagination)
+	if (s->pagination)
 	{
-		all->pagination -=
-		 ft_strlen(all
+		s->pagination -=
+		 ft_strlen(s
 					->str);
-		if (all->pagination < 0)
-			all->
+		if (s->pagination < 0)
+			s->
 			 pagination = 0;
 	}
 }
@@ -121,7 +122,7 @@ int calcul(t_pf_data *all, long long data)
 int test_va(char *str, ...)
 {
 	long long data_var;
-	t_pf_data all;
+	t_pf2 all;
 
 	va_list ap;
 
@@ -135,7 +136,6 @@ int test_va(char *str, ...)
 			parser(&str, &all);
 			data_var = va_arg(ap, long long);
 			calcul(&all, data_var);
-			// tant que str est different de mon nb j'avance
 		}
 		str++;
 	}
