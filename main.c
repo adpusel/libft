@@ -1,16 +1,13 @@
 # include "ft_library_header.h"
 
 void get_nb_to_str(long long nb, char *tab);
-void printNumber(long long nb);
-// en lisant la str je garde la trace de ce que j'ai get pour
-// genre 1 -> 33 nombre de char a print la premiere fois puis argv, puis on refais, puis argv ...
-// je print tout le but c'est pas de refaire super pf
 
 // sens
 #define STR 's'
 #define UNSIGNED 'u'
 #define DECIMAL 'd'
 #define CHAR 'c'
+#define LONG 'l'
 
 // manage number
 #define NB_SIZE 22
@@ -44,10 +41,9 @@ typedef struct s_testPr
 
 void get_nb_to_str(long long nb, char *tab)
 {
-	if (tab[IS_U] == FALSE)
+	if (tab[IS_U] == FALSE && nb < 0)
 	{
-		if (nb < 0)
-			nb *= -1;
+		nb *= -1;
 		tab[IS_NEG] = TRUE;
 	}
 	while ((unsigned long long) nb)
@@ -71,6 +67,8 @@ int parser(char **str_ptr, t_pf2 *data)
 		++str;
 	if (*str == 'd')
 		data->type = DECIMAL;
+	else if (*str == 'l')
+		data->type = LONG;
 	else if (*str == 'u')
 		data->type = UNSIGNED;
 	else if (*str == 's')
@@ -78,7 +76,10 @@ int parser(char **str_ptr, t_pf2 *data)
 	else if (*str == 'c')
 		data->type = CHAR;
 	else
-		return 1;
+	{
+		ft_putstr_fd("pb dans le parcing des argv printf", 2);
+		exit(EXIT_FAILURE);
+	}
 	return 0;
 }
 
@@ -90,13 +91,13 @@ int calcul(t_pf2 *s, long long data)
 	// nb
 	if (s->type == UNSIGNED)
 		s->tab[IS_U] = 1;
-	if (s->type == UNSIGNED || s->type == DECIMAL)
+	if (s->type == UNSIGNED || s->type == DECIMAL || s->type == LONG)
 	{
 		get_nb_to_str(data, s->tab);
 		while (s->tab[NB_SIZE]--)
 			s->tab_str[i++] = s->tab[(int) s->tab[NB_SIZE]];
+		s->tab_str[i] = '\0';
 		s->str = s->tab_str;
-
 	}
 		// str
 	else if (s->type == CHAR)
@@ -106,23 +107,39 @@ int calcul(t_pf2 *s, long long data)
 	else
 		return (1);
 	return (0);
+}
 
-	// calculer la taille a garder en fonction
+int print_arg(t_pf2 *s)
+{
 	if (s->pagination)
 	{
-		s->pagination -=
-		 ft_strlen(s
-					->str);
-		if (s->pagination < 0)
-			s->
-			 pagination = 0;
+		if (s->tab[IS_NEG])
+			s->pagination -= 1;
+		if (s->type != CHAR)
+			s->pagination -= ft_strlen(s->str);
+		else
+			s->pagination -= 1;
 	}
+
+	if (s->pagination < 0)
+		s->pagination = 0;
+	while (s->pagination--)
+		ft_putchar(' ');
+	if (s->tab[IS_NEG])
+		ft_putchar('-');
+
+	if (s->type == CHAR)
+		ft_putchar(s->cha);
+	else
+		ft_putstr_fd(s->str, 1);
+
+	return (0);
 }
 
 int test_va(char *str, ...)
 {
 	long long data_var;
-	t_pf2 all;
+	t_pf2 s;
 
 	va_list ap;
 
@@ -132,11 +149,27 @@ int test_va(char *str, ...)
 	{
 		if (*str == '%')
 		{
+			ft_zero(&s, sizeof(t_pf2));
 			++str;
-			parser(&str, &all);
-			data_var = va_arg(ap, long long);
-			calcul(&all, data_var);
+			parser(&str, &s);
+			if (s.type == DECIMAL)
+				data_var = va_arg(ap, int);
+			else
+				data_var = va_arg(ap, long long);
+			calcul(&s, data_var);
+
+			// print
+			print_arg(&s);
+
+			while (*str != s.type)
+				str++;
+			str++;
 		}
+
+		if (*str == 0)
+			break;
+
+		ft_putchar(*str);
 		str++;
 	}
 
@@ -149,30 +182,16 @@ int main(int ac, char **ap)
 	(void) ac;
 	(void) ap;
 
-	char *str = "%33d";
-	test_va(str, 22);
+	char *str = "%33d, super sayan, %s,  %0l, eeaoeouau , %22c";
+	test_va(str, -22, "lalara", -93871293712837, 'a');
 
 	return (EXIT_SUCCESS);
 }
 
 
 
-
-
-
-
-
 // la structure pour get les nb,
 //  "sens|nb|color|close"
-
-
-
-
-
-
-
-
-
 
 
 
