@@ -41,6 +41,11 @@ typedef struct s_testPr
 
 void get_nb_to_str(long long nb, char *tab)
 {
+	if (nb == 0)
+	{
+		tab[(int) tab[NB_SIZE]] = '0';
+		tab[NB_SIZE]++;
+	}
 	if (tab[IS_U] == FALSE && nb < 0)
 	{
 		nb *= -1;
@@ -183,7 +188,7 @@ int main(int ac, char **ap)
 	(void) ap;
 
 	char *str = "%33d, super sayan, %s,  %0l, eeaoeouau , %22c";
-	test_va(str, -22, "lalara", -93871293712837, 'a');
+	test_va(str, 0, "lalara", -93871293712837, 'a');
 
 	return (EXIT_SUCCESS);
 }
