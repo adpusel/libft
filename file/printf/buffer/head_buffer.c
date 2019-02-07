@@ -57,8 +57,8 @@ void	ft_print_buff(t_buff *buff)
 }
 
 /*
-**	fill the buff with str, update buff and return 1
-**	if str didn't fit, return 0
+**	fill the buff with dataParsed, update buff and return 1
+**	if dataParsed didn't fit, return 0
 */
 
 int		ft_fill_buff(char *str, t_buff *buff)

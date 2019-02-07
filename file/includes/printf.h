@@ -21,6 +21,51 @@
 # include <stdint.h>
 # include <cxxabi.h>
 
+
+// sens
+#define STR 's'
+#define UNSIGNED 'u'
+#define DECIMAL 'd'
+#define CHAR 'c'
+#define LONG 'l'
+
+// manage number
+#define NB_SIZE 22
+#define IS_NEG  23
+#define IS_U  24
+
+typedef struct s_pf2
+{
+	char *str;
+
+	va_list ap;
+	char *dataParsed; // le ptr a write
+	int type;  // int la suite //  ou dataParsed
+
+	// si
+	int length;// la taille de ma dataParsed si side, is needed
+
+	// char
+	char cha;
+
+	// si c'est color
+	int color;
+	int pagination;
+
+	// si c'est number
+	char tab[25]; // si c'est un nb, sera pointer par dataParsed
+	char tab_str[22];
+} t_pf2;
+
+int calcul(t_pf2 *s, long long data);
+
+int pf(char *str, ...);
+
+
+
+
+
+
 # define BUFF_SIZE 512
 
 typedef struct		s_buff
@@ -175,12 +220,12 @@ void				put_uni_into_tab(int c, char *tab, int precision);
 size_t				size_uni(wchar_t c, int precision);
 
 /*
-**  str style
+**  dataParsed style
 */
 void				manage_str(t_pf *pf);
 
 /*
-**	str uni style
+**	dataParsed uni style
 */
 void				manage_str_big(t_pf *pf);
 

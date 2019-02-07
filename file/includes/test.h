@@ -25,7 +25,7 @@
 extern int tests_run;
 
 /*------------------------------------*\
-    les defines de str fils
+    les defines de dataParsed fils
 \*------------------------------------*/
 
 # define STR_EQ(str_1, str_2)  (ft_str_eq(str_1, str_2))

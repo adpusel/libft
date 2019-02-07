@@ -31,7 +31,7 @@ int		ft_tolower(int c);
 int		ft_is_not_digit(int c);
 
 /*
-**  str function
+**  dataParsed function
 */
 size_t	ft_how_many_char(char c, char const *str);
 void	ft_putstr_fd(char const *s, int fd);
@@ -59,7 +59,7 @@ void ft_free_split(char ***t);
 
 
 /*
-**    check str
+**    check dataParsed
 */
 /**
  * \brief check s'il y a bien que des nb et fait un atoi dessus, work with +/-

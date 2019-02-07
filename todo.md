@@ -15,7 +15,7 @@ que le d et le s
 2 -> printer les hexa et les 
      binaires avec les separation demander
 
-2 -> printer les str avec la mise en page 
+2 -> printer les dataParsed avec la mise en page 
 
 3 -> faire un truc pour les couleur
 
