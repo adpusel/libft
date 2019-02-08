@@ -19,6 +19,7 @@
 # define MEM_LACK 0
 # define PTR_NULL 0
 
+# define BUFF_SIZE 1023
 # define TRUE 1
 # define OK 1
 # define DONE 1

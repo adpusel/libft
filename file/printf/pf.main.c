@@ -3,7 +3,7 @@
 /*
  * il est trigger des que j'ai une % qui apparait
  * */
-int parser(t_pf2 *s)
+int parser(t_pf *s)
 {
 	char *str = s->str;
 
@@ -29,7 +29,7 @@ int parser(t_pf2 *s)
 	return 0;
 }
 
-int print_arg(t_pf2 *s)
+int print_arg(t_pf *s)
 {
 	if (s->pagination)
 	{
@@ -56,11 +56,11 @@ int print_arg(t_pf2 *s)
 	return (0);
 }
 
-void parse_and_print(t_pf2 *s)
+void parse_and_print(t_pf *s)
 {
 	long long data_var;
 
-	ft_zero(((char *) s + sizeof(char *) + sizeof(va_list)), sizeof(t_pf2) - (sizeof(char *) + sizeof(va_list)));
+	ft_zero(((char *) s + sizeof(char *) + sizeof(va_list)), sizeof(t_pf) - (sizeof(char *) + sizeof(va_list)));
 	++(s->str);
 	parser(s);
 	if (s->type == DECIMAL)
@@ -76,7 +76,7 @@ void parse_and_print(t_pf2 *s)
 
 int pf(char *str, ...)
 {
-	t_pf2 s;
+	t_pf s;
 
 	va_start(s.ap, str);
 	s.str = str;

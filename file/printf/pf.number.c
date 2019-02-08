@@ -25,7 +25,7 @@ void get_nb_to_str(long long nb, char *tab)
 	}
 }
 
-int calcul(t_pf2 *s, long long data)
+int calcul(t_pf *s, long long data)
 {
 	static int i;
 
