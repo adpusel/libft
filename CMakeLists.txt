@@ -11,9 +11,6 @@ set(LIB_SRC file/)
 
 add_executable (Library_run main.c)
 
-file(GLOB TEST "${LIB_SRC}printf2/*.c")
-
-
 #*------------------------------------*\
 #    CHAR
 #*------------------------------------*/
@@ -36,13 +33,14 @@ file(GLOB FILE_IO "${LIB_SRC}io/*.c")
 file(GLOB FILE_MEMORY "${LIB_SRC}memory/*.c")
 
 #*------------------------------------*\
+#    PRINT
+#*------------------------------------*/
+file(GLOB FILE_PRINT "${LIB_SRC}print/*.c")
+
+#*------------------------------------*\
 #    PRINTF
 #*------------------------------------*/
 file(GLOB FILE_PRINTF_1 "${LIB_SRC}printf/*.c")
-file(GLOB FILE_PRINTF_2 "${LIB_SRC}printf/**/*.c")
-file(GLOB FILE_PRINTF_3 "${LIB_SRC}printf/**/**/*.c")
-file(GLOB FILE_PRINTF_4 "${LIB_SRC}printf/**/**/**/*.c")
-
 
 #*------------------------------------*\
 #    STRING
@@ -67,7 +65,6 @@ file(GLOB FILE_TEST_FILE "${LIB_SRC}test/test_file/*")
 file(GLOB HEADERS "${LIB_SRC}header/*")
 
 add_library(libft STATIC
-        ${TEST}
 
         #char
         ${FILE_CHAR}
@@ -82,11 +79,11 @@ add_library(libft STATIC
         #memory
         ${FILE_MEMORY}
 
+        #print
+        ${FILE_PRINT}
+
         #printf
         ${FILE_PRINTF_1}
-        ${FILE_PRINTF_2}
-        ${FILE_PRINTF_3}
-        ${FILE_PRINTF_4}
 
         #string
         ${FILE_STRING}

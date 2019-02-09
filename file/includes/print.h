@@ -10,57 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBRARY_FT_LIBRARY_HEADER_H
-# define LIBRARY_FT_LIBRARY_HEADER_H
+#ifndef PRINT_H
+# define PRINT_H
 
-/*
-**    print
-*/
-# include "print.h"
+# include <unistd.h>
 
-/*
-**    printf
-*/
-# include "printf.h"
+typedef struct		s_array
+{
+	size_t arr_size;
+	size_t el_size;
+	void *arr;
+} 					t_array;
 
-/*
-**	for more clarter
-*/
-# include "define.h"
 
-/*
-**  memory function
-*/
-#include "memory.h"
-
-/*
-**  text function
-*/
-# include "ft_string.h"
-
-/*
-**    double linked link
-*/
-# include "dll.h"
-
-/*
-**    type align 
-*/
-# include "align.h"
-
-/*
-**    io
-*/
-# include "io.h"
-
-/*
-**    tab
-*/
-# include "tab.h"
-
-/*
-**    test
-*/
-# include "test.h"
+void print_array_func(t_array *option, int (*f)(void *));
 
 #endif

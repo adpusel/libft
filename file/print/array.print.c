@@ -1,66 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sll_construct.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adpusel <adpusel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/19 10:48:07 by adpusel           #+#    #+#             */
-/*   Updated: 2018/05/04 16:43:59 by adpusel          ###   ########.fr       */
+/*   Updated: 2017/11/16 12:45:50 by adpusel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBRARY_FT_LIBRARY_HEADER_H
-# define LIBRARY_FT_LIBRARY_HEADER_H
+# include "ft_library_header.h"
 
-/*
-**    print
-*/
-# include "print.h"
+void print_array_func(t_array *option, int (*f)(void *))
+{
+	size_t i;
+	void *arr;
 
-/*
-**    printf
-*/
-# include "printf.h"
-
-/*
-**	for more clarter
-*/
-# include "define.h"
-
-/*
-**  memory function
-*/
-#include "memory.h"
-
-/*
-**  text function
-*/
-# include "ft_string.h"
-
-/*
-**    double linked link
-*/
-# include "dll.h"
-
-/*
-**    type align 
-*/
-# include "align.h"
-
-/*
-**    io
-*/
-# include "io.h"
-
-/*
-**    tab
-*/
-# include "tab.h"
-
-/*
-**    test
-*/
-# include "test.h"
-
-#endif
+	i = 0;
+	arr = option->arr;
+	while (i++ < option->arr_size)
+	{
+		f(arr);
+		arr += option->el_size;
+	}
+}
